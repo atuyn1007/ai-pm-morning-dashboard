@@ -126,6 +126,17 @@
   .opt .tips.show{display:flex;}
   .opt .tips .t{font-size:12.5px;color:var(--ink-soft);display:flex;gap:8px;align-items:flex-start;}
   .opt .ok{color:var(--green);font-size:12px;font-weight:600;margin-left:4px;display:none;}
+  .opt details.adv{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;}
+  .opt details.adv summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--ink-soft);user-select:none;}
+  .opt .adv-body{margin-top:12px;display:flex;flex-direction:column;gap:10px;}
+  .opt .adv-presets{font-size:12.5px;color:var(--ink-soft);}
+  .opt .adv-body label{font-size:12.5px;color:var(--ink-soft);display:flex;flex-direction:column;gap:5px;}
+  .opt .adv-body input[type=text],.opt .adv-body input[type=password]{font-size:13px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;font-family:inherit;color:var(--ink);}
+  .opt .adv-body input:focus{outline:none;border-color:var(--brand);}
+  .opt .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px;font-size:12px;cursor:pointer;margin:0 6px 6px 0;}
+  .opt .chip:hover{border-color:var(--brand);color:var(--brand);}
+  .opt .chk{flex-direction:row !important;align-items:center;gap:8px !important;color:var(--ink) !important;font-weight:600;}
+  .opt .adv-note{font-size:11.5px;color:var(--ink-faint);margin:0;line-height:1.6;}
 
   /* states */
   .skeleton{height:62px;border-radius:var(--radius);background:linear-gradient(90deg,#eef1f6 25%,#e3e7ef 37%,#eef1f6 63%);background-size:400% 100%;animation:sh 1.3s ease infinite;border:1px solid var(--line);}
@@ -211,6 +222,23 @@
     </div>
     <div class="result" id="opt-result"></div>
     <div class="tips" id="opt-tips"></div>
+
+    <details class="adv">
+      <summary>🔧 高级：接入你自己的模型 API（真 AI 改写）</summary>
+      <div class="adv-body">
+        <div class="adv-presets">预设：
+          <button type="button" class="chip" data-base="https://api.openai.com/v1" data-model="gpt-4o-mini">OpenAI</button>
+          <button type="button" class="chip" data-base="https://api.deepseek.com/v1" data-model="deepseek-chat">DeepSeek</button>
+          <button type="button" class="chip" data-base="https://dashscope.aliyuncs.com/compatible-mode/v1" data-model="qwen-plus">通义千问</button>
+          <button type="button" class="chip" data-base="https://api.moonshot.cn/v1" data-model="moonshot-v1-8k">Kimi</button>
+        </div>
+        <label>API Base URL<input id="opt-base" type="text" placeholder="https://api.openai.com/v1" autocomplete="off"></label>
+        <label>API Key<input id="opt-key" type="password" placeholder="sk-..." autocomplete="off"></label>
+        <label>模型名<input id="opt-model" type="text" placeholder="gpt-4o-mini" autocomplete="off"></label>
+        <label class="chk"><input type="checkbox" id="opt-useai"> 使用 AI 模型优化（勾选后调用上方接口，失败自动回退规则式）</label>
+        <p class="adv-note">⚠️ 密钥仅保存在你本地浏览器（localStorage），不会上传到任何服务器；纯前端直接调用模型接口，请仅在可信设备上使用。</p>
+      </div>
+    </details>
   </div>
 
   <footer>
@@ -569,16 +597,69 @@ text+"\n\n"+
   return {optimized, tips};
 }
 
+async function optimizeWithLLM(raw, cfg){
+  const url = cfg.base.replace(/\/+$/,"") + "/chat/completions";
+  const sys = "你是一位顶级的提示词（Prompt）工程师，擅长把用户随手写的粗糙提示词，改写成结构清晰、约束明确、效果显著的高质量中文提示词。要求：1) 补充缺失的角色设定与背景；2) 明确任务目标；3) 给出具体约束（格式、风格、长度、禁忌等）；4) 规定输出结构；5) 必要时提示补充示例。只返回优化后的提示词正文，不要解释，不要使用代码块或 markdown 包裹。";
+  const ctrl = new AbortController();
+  const tid = setTimeout(()=>ctrl.abort(), 20000);
+  const r = await fetch(url, {
+    method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+cfg.key},
+    body: JSON.stringify({model:cfg.model, messages:[
+      {role:"system", content:sys},
+      {role:"user", content: raw}
+    ], temperature:0.3}),
+    signal: ctrl.signal
+  });
+  clearTimeout(tid);
+  if(!r.ok) throw new Error("HTTP "+r.status);
+  const j = await r.json();
+  const t = j && j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
+  if(!t || !t.trim()) throw new Error("空响应");
+  return t.trim();
+}
+
 function bindOptimizer(){
   const input = document.getElementById("opt-input");
   const resultEl = document.getElementById("opt-result");
   const tipsEl = document.getElementById("opt-tips");
   const copyBtn = document.getElementById("opt-copy");
   const okEl = document.getElementById("opt-ok");
+  const baseEl = document.getElementById("opt-base");
+  const keyEl = document.getElementById("opt-key");
+  const modelEl = document.getElementById("opt-model");
+  const useAiEl = document.getElementById("opt-useai");
 
-  document.getElementById("opt-run").addEventListener("click", ()=>{
-    const res = optimizePrompt(input.value);
-    if(!res){
+  baseEl.value = localStorage.getItem("pm_opt_base") || "";
+  keyEl.value = localStorage.getItem("pm_opt_key") || "";
+  modelEl.value = localStorage.getItem("pm_opt_model") || "";
+  useAiEl.checked = localStorage.getItem("pm_opt_useai") === "1";
+
+  function saveCfg(){
+    localStorage.setItem("pm_opt_base", baseEl.value.trim());
+    localStorage.setItem("pm_opt_key", keyEl.value.trim());
+    localStorage.setItem("pm_opt_model", modelEl.value.trim());
+    localStorage.setItem("pm_opt_useai", useAiEl.checked ? "1" : "0");
+  }
+  [baseEl, keyEl, modelEl].forEach(el=>el.addEventListener("input", saveCfg));
+  useAiEl.addEventListener("change", saveCfg);
+
+  document.querySelectorAll(".opt .chip").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      baseEl.value = btn.dataset.base;
+      modelEl.value = btn.dataset.model;
+      saveCfg();
+    });
+  });
+
+  function showTips(arr){
+    tipsEl.innerHTML = arr.map(t=>`<div class="t"><span class="ic">${t.ic}</span><span>${escapeHtml(t.tx)}</span></div>`).join("");
+    tipsEl.classList.add("show");
+  }
+
+  document.getElementById("opt-run").addEventListener("click", async ()=>{
+    const raw = input.value;
+    if(!raw.trim()){
       resultEl.textContent = "请先输入你想优化的提示词 🙏";
       resultEl.classList.add("show");
       tipsEl.classList.remove("show");
@@ -586,12 +667,31 @@ function bindOptimizer(){
       okEl.style.display = "none";
       return;
     }
-    resultEl.textContent = res.optimized;
+    const cfg = {base:baseEl.value.trim(), key:keyEl.value.trim(), model:modelEl.value.trim()||"gpt-4o-mini"};
+    const useAI = useAiEl.checked && cfg.key;
+    resultEl.textContent = useAI ? "🤖 AI 优化中…" : "优化中…";
     resultEl.classList.add("show");
-    copyBtn.style.display = "inline-flex";
+    copyBtn.style.display = "none";
     okEl.style.display = "none";
-    tipsEl.innerHTML = res.tips.map(t=>`<div class="t"><span class="ic">💡</span><span>${escapeHtml(t)}</span></div>`).join("");
-    tipsEl.classList.add("show");
+    tipsEl.classList.remove("show");
+    try{
+      let optimized, tips;
+      if(useAI){
+        optimized = await optimizeWithLLM(raw, cfg);
+        showTips([{ic:"🤖", tx:`已由你的模型（${cfg.model}）优化。仍建议自行检查角色 / 格式 / 约束是否到位。`}]);
+      }else{
+        const res = optimizePrompt(raw);
+        optimized = res.optimized; tips = res.tips;
+        if(tips.length) showTips(tips.map(t=>({ic:"💡", tx:t})));
+      }
+      resultEl.textContent = optimized;
+      copyBtn.style.display = "inline-flex";
+    }catch(e){
+      const res = optimizePrompt(raw);
+      resultEl.textContent = res.optimized + "\n\n（⚠️ AI 调用失败，已回退规则式优化：" + (e && e.message ? e.message : e) + "）";
+      copyBtn.style.display = "inline-flex";
+      showTips(res.tips.map(t=>({ic:"💡", tx:t})));
+    }
   });
 
   document.getElementById("opt-clear").addEventListener("click", ()=>{
