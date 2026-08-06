@@ -24,31 +24,55 @@
     </div>
   </nav>
 
-  <header class="top" id="overview">
-    <span class="tape butter" aria-hidden="true" style="top:-11px;left:26px;"></span>
+  <header class="top hero-paper" id="overview">
+    <span class="tape butter hero-tape" aria-hidden="true"></span>
+    <span class="tape green hero-tape-b" aria-hidden="true"></span>
+    <img class="sticker hero-dog" src="assets/stickers/dog-thinking.webp" alt="" aria-hidden="true" width="130" height="130">
+    <img class="sticker hero-group" src="assets/stickers/group-circle.webp" alt="" aria-hidden="true" width="200" height="200">
     <div class="greet">
       <h1 id="greet">早上好 👋</h1>
       <div class="sub">AI / 大模型行业晨报 · <span class="date" id="today">—</span> · 产品经理版</div>
     </div>
     <div class="controls">
       <div class="clock" id="clock">--:--:--</div>
-      <button class="btn primary" id="refresh" title="重新抓取并翻译英文实时源">
+      <button class="btn primary" id="refresh" title="重新抓取并翻译英文实时源" aria-label="刷新数据">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
         刷新
       </button>
     </div>
   </header>
 
-  <div class="tip torn-note" id="tip-box">
+  <div class="tip torn-note butter-note" id="tip-box">
+    <img class="sticker tip-sticker-l" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="70" height="70">
+    <img class="sticker tip-sticker-r" src="assets/stickers/sticker-r5-c4.webp" alt="" aria-hidden="true" width="70" height="70">
     <span class="ic">☕</span>
-    <div id="tip">坐下来，花 3 分钟扫一眼今日 AI 圈在发生什么，再挑一条能力练练手。</div>
+    <div class="tip-body">
+      <div class="tip-title">今日小贴士</div>
+      <div id="tip">坐下来，花 3 分钟扫一眼今日 AI 圈在发生什么，再挑一条能力练练手。</div>
+    </div>
   </div>
 
-  <div class="stats" id="stats">
-    <div class="stat"><div class="k">中文行业动态</div><div class="v" id="s-cn-news">—<small> 条</small></div></div>
-    <div class="stat"><div class="k">GitHub 本周高赞</div><div class="v" id="s-gh">—<small> 个</small></div></div>
-    <div class="stat"><div class="k">海外 AI 动态</div><div class="v" id="s-hn">—<small> 条</small></div></div>
-    <div class="stat"><div class="k">最近更新</div><div class="v" id="s-upd" style="font-size:15px;">—</div></div>
+  <div class="stats" id="stats" aria-label="今日概览统计">
+    <div class="stat memo-card stat-card">
+      <span class="tape green stat-tape" aria-hidden="true"></span>
+      <div class="k">中文行业动态</div>
+      <div class="v" id="s-cn-news">—<small> 条</small></div>
+    </div>
+    <div class="stat memo-card stat-card">
+      <span class="tape butter stat-tape" aria-hidden="true"></span>
+      <div class="k">GitHub 本周高赞</div>
+      <div class="v" id="s-gh">—<small> 个</small></div>
+    </div>
+    <div class="stat memo-card stat-card">
+      <span class="tape green stat-tape" aria-hidden="true"></span>
+      <div class="k">海外 AI 动态</div>
+      <div class="v" id="s-hn">—<small> 条</small></div>
+    </div>
+    <div class="stat memo-card stat-card">
+      <span class="tape butter stat-tape" aria-hidden="true"></span>
+      <div class="k">最近更新</div>
+      <div class="v" id="s-upd">—</div>
+    </div>
   </div>
 
   <div class="section-head" id="tracking">
