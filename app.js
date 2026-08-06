@@ -270,11 +270,26 @@ function renderGH(){
 }
 
 function renderCaps(){
-  document.getElementById("caps").innerHTML = CAPS.map(c=>`
+  document.getElementById("caps").innerHTML = CAPS.map((c,i)=>`
     <div class="cap">
-      <div class="h"><span class="em">${c.em}</span><span class="name">${c.name}</span></div>
-      <div class="why">${c.why}</div>
-      <div class="act">✅ <b>今日练习：</b>${c.act}</div>
+      <span class="cap-tape tape butter"></span>
+      <div class="cap-top">
+        <span class="cap-no">${String(i+1).padStart(2,'0')}</span>
+        <span class="em">${c.em}</span>
+        <span class="name">${c.name}</span>
+      </div>
+      <div class="cap-block">
+        <span class="cap-tag">为什么重要</span>
+        <p class="why">${c.why}</p>
+      </div>
+      <div class="cap-block cap-act">
+        <span class="chk-box" aria-hidden="true"></span>
+        <div class="act-body">
+          <span class="cap-tag">今日行动</span>
+          <p class="act">${c.act}</p>
+        </div>
+      </div>
+      <div class="cap-foot"><span class="cap-status">待打卡</span></div>
     </div>`).join("");
 }
 

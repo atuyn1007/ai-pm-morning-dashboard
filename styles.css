@@ -305,16 +305,78 @@
   }
 
   /* ============================================================
-     能力网格
+     能力网格 · 学习打卡页（奶油粉手帐）
      ============================================================ */
-  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);}
-  .cap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px 17px;box-shadow:var(--shadow-card);}
-  .cap .h{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
-  .cap .h .em{font-size:20px;}
-  .cap .h .name{font-weight:800;font-size:14.5px;color:var(--brown);}
-  .cap .why{font-size:12.5px;color:var(--ink-soft);margin-bottom:9px;}
-  .cap .act{font-size:12.5px;background:var(--pink-50);border:1px solid var(--line);border-radius:9px;padding:8px 10px;color:var(--ink);}
-  .cap .act b{color:var(--teal);}
+  /* 模块标题：撕纸标签 */
+  .caps-head .torn-label{
+    position:relative;
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--paper-warm);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:9px 16px 11px;
+    box-shadow:var(--shadow-soft);
+    font-size:18px;font-weight:800;color:var(--brown);
+  }
+  .caps-head .torn-label::before{
+    content:"";position:absolute;left:-1px;right:-1px;top:-6px;height:10px;
+    background:inherit;border:1px solid var(--line);border-bottom:none;
+    clip-path:polygon(0 100%,0 40%,6% 70%,12% 34%,18% 66%,24% 38%,30% 70%,36% 42%,42% 72%,48% 36%,54% 68%,60% 42%,66% 72%,72% 36%,78% 66%,84% 38%,90% 70%,96% 42%,100% 68%,100% 100%);
+  }
+  .caps-head .torn-label::after{
+    content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg);
+    width:64px;height:20px;border-radius:3px;
+    background:rgba(244,134,155,.30);border:1px solid rgba(237,113,137,.20);
+    background-image:repeating-linear-gradient(90deg,transparent 0 8px,rgba(255,255,255,.4) 8px 9px);
+  }
+  .caps-wrap{position:relative;}
+  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);position:relative;z-index:1;}
+  .caps-sticker{bottom:-26px;right:-16px;}
+
+  .cap{
+    position:relative;
+    background:linear-gradient(180deg,#fffaf6 0%, #fff1f4 100%);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-card);
+    padding:20px 16px 16px;
+  }
+  .cap-tape{top:-9px;left:50%;margin-left:-40px;width:80px;height:20px;transform:rotate(-2deg);}
+  .cap-top{display:flex;align-items:center;gap:9px;margin-bottom:13px;}
+  .cap-no{
+    flex:0 0 auto;width:26px;height:26px;border-radius:8px;
+    background:var(--butter);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12.5px;font-weight:800;color:var(--brown);
+    box-shadow:var(--shadow-soft);
+  }
+  .cap-top .em{font-size:19px;flex:0 0 auto;}
+  .cap-top .name{font-weight:800;font-size:14.5px;color:var(--brown);line-height:1.25;}
+  .cap-block{margin-bottom:11px;}
+  .cap-block:last-of-type{margin-bottom:0;}
+  .cap-tag{
+    display:inline-block;font-size:11.5px;font-weight:800;color:var(--pink-500);
+    letter-spacing:.4px;padding-bottom:4px;margin-bottom:5px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='6'%3E%3Cpath d='M1 4 Q 8 1 15 4 T 30 4 T 45 4 T 59 4' stroke='%23ed7189' stroke-width='1.7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:0 100%;background-size:100% 6px;
+  }
+  .cap .why{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.6;}
+  .cap-act{display:flex;gap:10px;align-items:flex-start;}
+  /* 复选框：装饰性、未选中（无真实完成数据，绝不显示“已完成”） */
+  .chk-box{
+    flex:0 0 auto;width:18px;height:18px;margin-top:2px;
+    border:2px solid var(--pink-400);border-radius:5px;background:#fff;
+    box-shadow:inset 0 1px 2px rgba(91,62,52,.07);
+  }
+  .cap-act .act-body{flex:1 1 auto;}
+  .cap .act{font-size:12.5px;color:var(--ink);margin:0;line-height:1.6;}
+  /* 打卡状态标签：仅表达“待打卡”的空状态，不虚构已完成 */
+  .cap-foot{display:flex;justify-content:flex-end;margin-top:13px;}
+  .cap-status{
+    font-size:10.5px;font-weight:800;color:var(--brown-soft);
+    background:var(--paper);border:1px solid var(--line);border-radius:999px;
+    padding:2px 10px;box-shadow:var(--shadow-soft);
+  }
 
   /* ============================================================
      提示词优化器
