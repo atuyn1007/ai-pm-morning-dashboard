@@ -114,34 +114,71 @@
   </div>
 
   <div class="opt" id="toolbox">
-    <div class="head"><span class="bar accent-pink"></span><h2>提示词优化器</h2></div>
-    <p class="sub">把你想写的粗糙提示词贴进来，点「优化」自动重组成结构化版本（角色 + 任务 + 约束 + 输出格式）。完全离线、无需密钥，WorkBuddy 预览里也能直接用。</p>
-    <textarea id="opt-input" placeholder="例如：帮我写个产品周报，要好看一点"></textarea>
-    <div class="row">
-      <button class="btn primary" id="opt-run">⚡ 优化提示词</button>
-      <button class="btn" id="opt-clear">清空</button>
-      <button class="btn" id="opt-copy" style="display:none">📋 复制结果</button>
-      <span class="ok" id="opt-ok">已复制 ✓</span>
-    </div>
-    <div class="result" id="opt-result"></div>
-    <div class="tips" id="opt-tips"></div>
-
-    <details class="adv">
-      <summary>🔧 高级：接入你自己的模型 API（真 AI 改写）</summary>
-      <div class="adv-body">
-        <div class="adv-presets">预设：
-          <button type="button" class="chip" data-base="https://api.openai.com/v1" data-model="gpt-4o-mini">OpenAI</button>
-          <button type="button" class="chip" data-base="https://api.deepseek.com/v1" data-model="deepseek-chat">DeepSeek</button>
-          <button type="button" class="chip" data-base="https://dashscope.aliyuncs.com/compatible-mode/v1" data-model="qwen-plus">通义千问</button>
-          <button type="button" class="chip" data-base="https://api.moonshot.cn/v1" data-model="moonshot-v1-8k">Kimi</button>
-        </div>
-        <label>API Base URL<input id="opt-base" type="text" placeholder="https://api.openai.com/v1" autocomplete="off"></label>
-        <label>API Key<input id="opt-key" type="password" placeholder="sk-..." autocomplete="off"></label>
-        <label>模型名<input id="opt-model" type="text" placeholder="gpt-4o-mini" autocomplete="off"></label>
-        <label class="chk"><input type="checkbox" id="opt-useai"> 使用 AI 模型优化（勾选后调用上方接口，失败自动回退规则式）</label>
-        <p class="adv-note">⚠️ 密钥仅保存在你本地浏览器（localStorage），不会上传到任何服务器；纯前端直接调用模型接口，请仅在可信设备上使用。</p>
+    <div class="opt-head">
+      <span class="bar accent-pink"></span>
+      <div>
+        <h2>提示词优化器</h2>
+        <p class="sub">把粗糙提示词贴进来，点「优化」自动重组成结构化版本（角色 + 任务 + 约束 + 输出格式）。完全离线、无需密钥，预览内也能直接用。</p>
       </div>
-    </details>
+    </div>
+
+    <div class="opt-work">
+      <!-- 左栏：输入 -->
+      <section class="opt-pane opt-left">
+        <div class="pane-label"><span class="dot"></span>原始提示词</div>
+        <textarea id="opt-input" placeholder="例如：帮我写个产品周报，要好看一点"></textarea>
+        <div class="opt-meta"><span id="opt-count">0 字</span></div>
+
+        <div class="dir-label">优化方向</div>
+        <div class="dir-row">
+          <button type="button" class="dir active" data-dir="">自动</button>
+          <button type="button" class="dir" data-dir="用户研究">用户研究</button>
+          <button type="button" class="dir" data-dir="增长运营">增长运营</button>
+          <button type="button" class="dir" data-dir="数据分析">数据分析</button>
+          <button type="button" class="dir" data-dir="内容营销">内容营销</button>
+          <button type="button" class="dir" data-dir="技术研发">技术研发</button>
+        </div>
+
+        <div class="opt-actions">
+          <button class="btn primary" id="opt-run">⚡ 优化提示词</button>
+        </div>
+
+        <details class="adv">
+          <summary>🔧 高级：接入你自己的模型 API（真 AI 改写）</summary>
+          <div class="adv-body">
+            <div class="adv-presets">预设：
+              <button type="button" class="chip" data-base="https://api.openai.com/v1" data-model="gpt-4o-mini">OpenAI</button>
+              <button type="button" class="chip" data-base="https://api.deepseek.com/v1" data-model="deepseek-chat">DeepSeek</button>
+              <button type="button" class="chip" data-base="https://dashscope.aliyuncs.com/compatible-mode/v1" data-model="qwen-plus">通义千问</button>
+              <button type="button" class="chip" data-base="https://api.moonshot.cn/v1" data-model="moonshot-v1-8k">Kimi</button>
+            </div>
+            <label>API Base URL<input id="opt-base" type="text" placeholder="https://api.openai.com/v1" autocomplete="off"></label>
+            <label>API Key<input id="opt-key" type="password" placeholder="sk-..." autocomplete="off"></label>
+            <label>模型名<input id="opt-model" type="text" placeholder="gpt-4o-mini" autocomplete="off"></label>
+            <label class="chk"><input type="checkbox" id="opt-useai"> 使用 AI 模型优化（勾选后调用上方接口，失败自动回退规则式）</label>
+            <p class="adv-note">⚠️ 密钥仅保存在你本地浏览器（localStorage），不会上传到任何服务器；纯前端直接调用模型接口，请仅在可信设备上使用。</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- 右栏：结果 -->
+      <section class="opt-pane opt-right">
+        <div class="pane-label split">
+          <span class="pl-title"><span class="dot"></span>优化后的提示词</span>
+          <span id="opt-status" class="status idle">待优化</span>
+        </div>
+        <div class="result" id="opt-result"></div>
+        <div class="tips" id="opt-tips"></div>
+        <div class="opt-actions right">
+          <button class="btn" id="opt-copy" style="display:none">📋 复制结果</button>
+          <button class="btn ghost" id="opt-clear">清空</button>
+          <span class="ok" id="opt-ok">已复制 ✓</span>
+        </div>
+      </section>
+    </div>
+
+    <img class="sticker opt-sticker opt-carrot" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="74" height="74">
+    <img class="sticker opt-sticker opt-dog" src="assets/stickers/dog-lie.webp" alt="" aria-hidden="true" width="120" height="106">
   </div>
 
   <footer>

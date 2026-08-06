@@ -325,15 +325,17 @@ function initHeader(){
 }
 
 /* ---------- 提示词优化器（离线规则式，无需密钥） ---------- */
-function optimizePrompt(raw){
+function optimizePrompt(raw, preferDomain){
   const text = (raw||"").trim();
   if(!text) return null;
-  let domain = "AI 产品";
-  if(/(用户|需求|调研|访谈|痛点|体验)/.test(text)) domain = "用户研究";
+  let domain = preferDomain || "AI 产品";
+  if(!preferDomain){
+    if(/(用户|需求|调研|访谈|痛点|体验)/.test(text)) domain = "用户研究";
   else if(/(运营|增长|投放|转化|留存|拉新)/.test(text)) domain = "增长运营";
   else if(/(数据|指标|分析|报表|看板|埋点)/.test(text)) domain = "数据分析";
   else if(/(文案|推文|海报|营销|品牌|种草)/.test(text)) domain = "内容营销";
   else if(/(代码|开发|bug|接口|前端|后端|测试)/.test(text)) domain = "技术研发";
+  }
 
   const optimized =
 "# 角色\n"+
@@ -389,10 +391,13 @@ function bindOptimizer(){
   const tipsEl = document.getElementById("opt-tips");
   const copyBtn = document.getElementById("opt-copy");
   const okEl = document.getElementById("opt-ok");
+  const countEl = document.getElementById("opt-count");
+  const statusEl = document.getElementById("opt-status");
   const baseEl = document.getElementById("opt-base");
   const keyEl = document.getElementById("opt-key");
   const modelEl = document.getElementById("opt-model");
   const useAiEl = document.getElementById("opt-useai");
+  const runBtn = document.getElementById("opt-run");
 
   baseEl.value = localStorage.getItem("pm_opt_base") || "";
   keyEl.value = localStorage.getItem("pm_opt_key") || "";
@@ -416,14 +421,30 @@ function bindOptimizer(){
     });
   });
 
+  // 优化方向（可选；为空 = 自动识别）
+  let optDirection = "";
+  document.querySelectorAll(".opt .dir").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      document.querySelectorAll(".opt .dir").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      optDirection = btn.dataset.dir || "";
+    });
+  });
+
+  function setStatus(cls, text){ statusEl.className = "status " + cls; statusEl.textContent = text; }
+  function updateCount(){ countEl.textContent = (input.value.length) + " 字"; }
+  updateCount();
+  input.addEventListener("input", updateCount);
+
   function showTips(arr){
     tipsEl.innerHTML = arr.map(t=>`<div class="t"><span class="ic">${t.ic}</span><span>${escapeHtml(t.tx)}</span></div>`).join("");
     tipsEl.classList.add("show");
   }
 
-  document.getElementById("opt-run").addEventListener("click", async ()=>{
+  runBtn.addEventListener("click", async ()=>{
     const raw = input.value;
     if(!raw.trim()){
+      setStatus("empty", "⚠️ 空输入");
       resultEl.textContent = "请先输入你想优化的提示词 🙏";
       resultEl.classList.add("show");
       tipsEl.classList.remove("show");
@@ -433,28 +454,35 @@ function bindOptimizer(){
     }
     const cfg = {base:baseEl.value.trim(), key:keyEl.value.trim(), model:modelEl.value.trim()||"gpt-4o-mini"};
     const useAI = useAiEl.checked && cfg.key;
+    setStatus("loading", useAI ? "🤖 AI 优化中…" : "优化中…");
     resultEl.textContent = useAI ? "🤖 AI 优化中…" : "优化中…";
     resultEl.classList.add("show");
     copyBtn.style.display = "none";
     okEl.style.display = "none";
     tipsEl.classList.remove("show");
+    runBtn.disabled = true;
     try{
       let optimized, tips;
       if(useAI){
         optimized = await optimizeWithLLM(raw, cfg);
         showTips([{ic:"🤖", tx:`已由你的模型（${cfg.model}）优化。仍建议自行检查角色 / 格式 / 约束是否到位。`}]);
+        setStatus("success", "✅ AI 优化成功");
       }else{
-        const res = optimizePrompt(raw);
+        const res = optimizePrompt(raw, optDirection);
         optimized = res.optimized; tips = res.tips;
         if(tips.length) showTips(tips.map(t=>({ic:"💡", tx:t})));
+        setStatus("success", "✅ 优化完成");
       }
       resultEl.textContent = optimized;
       copyBtn.style.display = "inline-flex";
     }catch(e){
-      const res = optimizePrompt(raw);
+      const res = optimizePrompt(raw, optDirection);
       resultEl.textContent = res.optimized + "\n\n（⚠️ AI 调用失败，已回退规则式优化：" + (e && e.message ? e.message : e) + "）";
       copyBtn.style.display = "inline-flex";
       showTips(res.tips.map(t=>({ic:"💡", tx:t})));
+      setStatus("fallback", "⚠️ 调用失败·已回退");
+    }finally{
+      runBtn.disabled = false;
     }
   });
 
@@ -464,6 +492,8 @@ function bindOptimizer(){
     tipsEl.classList.remove("show");
     copyBtn.style.display = "none";
     okEl.style.display = "none";
+    updateCount();
+    setStatus("idle", "待优化");
   });
 
   copyBtn.addEventListener("click", async ()=>{
