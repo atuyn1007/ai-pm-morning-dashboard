@@ -146,11 +146,14 @@ async function translateAll(list, concurrency){
 
 async function fetchHN(){
   const out=[], seen=new Set();
+  const ctrl = new AbortController();
+  const tid = setTimeout(()=>ctrl.abort(), 9000);
   const reqs = HN_TERMS.map(t=>
-    fetch(`https://hn.algolia.com/api/v1/search_by_date?tags=story&query=${encodeURIComponent(t)}&hitsPerPage=10`)
+    fetch(`https://hn.algolia.com/api/v1/search_by_date?tags=story&query=${encodeURIComponent(t)}&hitsPerPage=10`, {signal:ctrl.signal})
       .then(r=>r.json()).catch(()=>null)
   );
   const res = await Promise.all(reqs);
+  clearTimeout(tid);
   res.forEach(data=>{
     if(data && data.hits){
       data.hits.forEach(h=>{
@@ -199,29 +202,46 @@ async function fetchFeed(feed){
   return [];
 }
 
+function renderNewsCard(x){
+  const display = x.cn || x.title;
+  return `
+    <div class="card ${x.fallback?'fallback':''}">
+      <a class="title" href="${x.url}" target="_blank" rel="noopener">${escapeHtml(display)}</a>
+      ${ (x.cn && x.cn !== x.title) ? `<div class="en-src">${escapeHtml(x.title)}</div>` : '' }
+      <div class="row">
+        <span class="tag ${x.tag}">${x.source}${x.fallback?' · 备用':''}</span>
+        <span>${timeAgo(x.time)}</span>
+      </div>
+    </div>`;
+}
+
 async function loadNews(){
   const newsEl = document.getElementById("news");
-  newsEl.innerHTML = '<div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>';
+  newsEl.setAttribute("aria-busy","true");
+  newsEl.innerHTML = '<div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div>';
   document.getElementById("news-meta").textContent = "实时抓取 + 翻译中…";
 
-  const [hn, gh, cnArrays] = await Promise.all([
-    fetchHN(),
-    fetchGitHub(),
-    Promise.all(CN_FEEDS.map(fetchFeed))
-  ]);
-  const cn = cnArrays.flat();
-  let all = [...hn, ...gh, ...cn];
+  let all = [];
+  try{
+    const [hn, gh, cnArrays] = await Promise.all([
+      fetchHN(),
+      fetchGitHub(),
+      Promise.all(CN_FEEDS.map(fetchFeed))
+    ]);
+    const cn = cnArrays.flat();
+    all = [...hn, ...gh, ...cn];
+  }catch(e){ all = []; }
+
   let usedFallback = false;
+  if(all.length===0){
+    all = FALLBACK_NEWS.slice();
+    usedFallback = true;
+  }
 
   const seenT = new Set();
   all = all.filter(x=>{ if(seenT.has(x.title)) return false; seenT.add(x.title); return true; })
            .sort((a,b)=> new Date(b.time) - new Date(a.time))
            .slice(0, 24);
-
-  if(all.length===0){
-    all = FALLBACK_NEWS.slice();
-    usedFallback = true;
-  }
 
   if(usedFallback){
     document.getElementById("news-meta").textContent = "备用数据（实时抓取被当前环境限制，已显示中文）";
@@ -229,18 +249,31 @@ async function loadNews(){
     document.getElementById("news-meta").textContent = "更新于 " + new Date().toLocaleTimeString("zh-CN") + " · 已译中文";
   }
 
-  // 实时翻译为中午后渲染
-  const rendered = await translateAll(all, 6);
-  document.getElementById("s-hn").innerHTML = rendered.length + '<small> 条</small>';
-  newsEl.innerHTML = rendered.map(x=>`
-    <div class="card ${x.fallback?'fallback':''}">
-      <a class="title" href="${x.url}" target="_blank" rel="noopener">${escapeHtml(x.cn || x.title)}</a>
-      ${ (x.cn && x.cn !== x.title) ? `<div class="en-src">${escapeHtml(x.title)}</div>` : '' }
-      <div class="row">
-        <span class="tag ${x.tag}">${x.source}${x.fallback?' · 备用':''}</span>
-        <span>${timeAgo(x.time)}</span>
-      </div>
-    </div>`).join("");
+  // 先渲染（已翻译的显示中文，未翻译的先用英文占位），避免翻译慢导致骨架卡住
+  document.getElementById("s-hn").innerHTML = all.length + '<small> 条</small>';
+  newsEl.innerHTML = all.map(renderNewsCard).join("");
+  newsEl.removeAttribute("aria-busy");
+
+  // 异步翻译，逐条回填中文（不阻塞首屏）
+  if(!usedFallback){
+    translateAll(all, 6).then(translated=>{
+      translated.forEach((item, i)=>{
+        const card = newsEl.children[i];
+        if(!card) return;
+        if(item.cn && item.cn !== item.title){
+          const t = card.querySelector("a.title");
+          if(t) t.textContent = item.cn;
+          if(!card.querySelector(".en-src")){
+            const es = document.createElement("div");
+            es.className = "en-src";
+            es.textContent = item.title;
+            const row = card.querySelector(".row");
+            if(row) card.insertBefore(es, row);
+          }
+        }
+      });
+    }).catch(()=>{});
+  }
 }
 
 function renderCnNews(){
@@ -425,8 +458,12 @@ function bindOptimizer(){
   let optDirection = "";
   document.querySelectorAll(".opt .dir").forEach(btn=>{
     btn.addEventListener("click", ()=>{
-      document.querySelectorAll(".opt .dir").forEach(b=>b.classList.remove("active"));
+      document.querySelectorAll(".opt .dir").forEach(b=>{
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed","false");
+      });
       btn.classList.add("active");
+      btn.setAttribute("aria-pressed","true");
       optDirection = btn.dataset.dir || "";
     });
   });
@@ -461,6 +498,7 @@ function bindOptimizer(){
     okEl.style.display = "none";
     tipsEl.classList.remove("show");
     runBtn.disabled = true;
+    runBtn.setAttribute("aria-busy","true");
     try{
       let optimized, tips;
       if(useAI){
@@ -483,6 +521,7 @@ function bindOptimizer(){
       setStatus("fallback", "⚠️ 调用失败·已回退");
     }finally{
       runBtn.disabled = false;
+      runBtn.removeAttribute("aria-busy");
     }
   });
 
@@ -518,9 +557,16 @@ renderCaps();
 updateStats();
 tick(); setInterval(tick,1000);
 loadNews();
+const REFRESH_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 document.getElementById("refresh").addEventListener("click", ()=>{
-  document.getElementById("refresh").innerHTML = "抓取中…";
+  const btn = document.getElementById("refresh");
+  if(btn.disabled) return;              // 防重复点击
+  btn.disabled = true;
+  btn.setAttribute("aria-busy","true");
+  btn.innerHTML = "抓取中…";
   loadNews().finally(()=>{
-    document.getElementById("refresh").innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>刷新';
+    btn.disabled = false;
+    btn.removeAttribute("aria-busy");
+    btn.innerHTML = REFRESH_ICON + "刷新";
   });
 });

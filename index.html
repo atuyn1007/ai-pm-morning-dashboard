@@ -3,16 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light" />
+<meta name="description" content="AI 产品经理晨间仪表盘：每日中文行业动态、GitHub 高赞开源项目、海外 AI 动态（自动翻译）、产品经理能力打卡与提示词优化器。" />
 <title>AI 产品经理晨间仪表盘</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23f7c9d4'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle'%3E%F0%9F%93%93%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<a class="skip-link" href="#overview">跳到主要内容</a>
 <div class="wrap">
 
   <nav class="nav" aria-label="主导航">
     <div class="nav-inner">
       <a class="nav-brand" href="#overview" aria-label="返回顶部">
-        <img class="sticker dog" src="assets/stickers/dog-thinking.webp" alt="" aria-hidden="true" width="42" height="42">
+        <img class="sticker dog" src="assets/stickers/dog-thinking.webp" alt="" aria-hidden="true" width="44" height="44" decoding="async">
         <span class="name">AI 产品经理晨间仪表盘<small>每天工位打卡 · 温柔开工</small></span>
       </a>
       <div class="nav-links">
@@ -27,25 +31,25 @@
   <header class="top hero-paper" id="overview">
     <span class="tape butter hero-tape" aria-hidden="true"></span>
     <span class="tape green hero-tape-b" aria-hidden="true"></span>
-    <img class="sticker hero-dog" src="assets/stickers/dog-thinking.webp" alt="" aria-hidden="true" width="130" height="130">
-    <img class="sticker hero-group" src="assets/stickers/group-circle.webp" alt="" aria-hidden="true" width="200" height="200">
+    <img class="sticker hero-dog" src="assets/stickers/dog-thinking.webp" alt="" aria-hidden="true" width="150" height="150" decoding="async">
+    <img class="sticker hero-group" src="assets/stickers/group-circle.webp" alt="" aria-hidden="true" width="200" height="200" decoding="async">
     <div class="greet">
       <h1 id="greet">早上好 👋</h1>
       <div class="sub">AI / 大模型行业晨报 · <span class="date" id="today">—</span> · 产品经理版</div>
     </div>
     <div class="controls">
-      <div class="clock" id="clock">--:--:--</div>
-      <button class="btn primary" id="refresh" title="重新抓取并翻译英文实时源" aria-label="刷新数据">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+      <div class="clock" id="clock" role="timer" aria-live="off">--:--:--</div>
+      <button type="button" class="btn primary" id="refresh" title="重新抓取并翻译英文实时源" aria-label="刷新海外 AI 动态数据">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
         刷新
       </button>
     </div>
   </header>
 
   <div class="tip torn-note butter-note" id="tip-box">
-    <img class="sticker tip-sticker-l" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="70" height="70">
-    <img class="sticker tip-sticker-r" src="assets/stickers/sticker-r5-c4.webp" alt="" aria-hidden="true" width="70" height="70">
-    <span class="ic">☕</span>
+    <img class="sticker tip-sticker-l" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="74" height="74" loading="lazy" decoding="async">
+    <img class="sticker tip-sticker-r" src="assets/stickers/sticker-r5-c4.webp" alt="" aria-hidden="true" width="74" height="74" loading="lazy" decoding="async">
+    <span class="ic" aria-hidden="true">☕</span>
     <div class="tip-body">
       <div class="tip-title">今日小贴士</div>
       <div id="tip">坐下来，花 3 分钟扫一眼今日 AI 圈在发生什么，再挑一条能力练练手。</div>
@@ -77,45 +81,45 @@
 
   <div class="section-wrap cn-wrap">
     <div class="section-head" id="tracking">
-      <h2 class="section-label"><span class="bar accent-pink"></span>中文行业动态</h2>
+      <h2 class="section-label"><span class="bar accent-pink" aria-hidden="true"></span>中文行业动态</h2>
       <div class="meta">每日精选 · 已读即可转述</div>
     </div>
-    <img class="sticker sec-sticker cn-sticker" src="assets/stickers/group-stack.webp" alt="" aria-hidden="true" width="92" height="92">
+    <img class="sticker sec-sticker cn-sticker" src="assets/stickers/group-stack.webp" alt="" aria-hidden="true" width="88" height="88" loading="lazy" decoding="async">
     <div class="news news-paper" id="cn-news"></div>
   </div>
 
   <div class="section-wrap gh-wrap">
     <div class="section-head">
-      <h2 class="section-label"><span class="bar accent-amber"></span>本周 GitHub 高赞开源 Skills</h2>
+      <h2 class="section-label"><span class="bar accent-amber" aria-hidden="true"></span>本周 GitHub 高赞开源 Skills</h2>
       <div class="meta">按最近 7 天活跃度/Star 排序</div>
     </div>
-    <img class="sticker sec-sticker gh-sticker" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="78" height="78">
+    <img class="sticker sec-sticker gh-sticker" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="88" height="88" loading="lazy" decoding="async">
     <div class="gh-grid gh-shelf" id="gh-weekly"></div>
   </div>
 
   <div class="section-wrap overseas-wrap">
     <div class="section-head">
-      <h2 class="section-label"><span class="bar accent-amber"></span>海外 AI 动态（已译中文）</h2>
-      <div class="meta" id="news-meta">实时抓取 + 翻译中…</div>
+      <h2 class="section-label"><span class="bar accent-amber" aria-hidden="true"></span>海外 AI 动态（已译中文）</h2>
+      <div class="meta" id="news-meta" role="status" aria-live="polite">实时抓取 + 翻译中…</div>
     </div>
     <div class="news news-clip" id="news">
-      <div class="skeleton"></div><div class="skeleton"></div>
-      <div class="skeleton"></div><div class="skeleton"></div>
+      <div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div>
+      <div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div>
     </div>
   </div>
 
   <div class="section-head caps-head">
-    <h2 class="section-label torn-label"><span class="bar accent-pink"></span>产品经理能力打卡</h2>
+    <h2 class="section-label torn-label"><span class="bar accent-pink" aria-hidden="true"></span>产品经理能力打卡</h2>
     <div class="meta">每天挑 1 项刻意练习</div>
   </div>
   <div class="caps-wrap section-wrap">
-    <img class="sticker sec-sticker caps-sticker" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="84" height="84">
+    <img class="sticker sec-sticker caps-sticker" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="88" height="88" loading="lazy" decoding="async">
     <div class="caps" id="caps"></div>
   </div>
 
   <div class="opt" id="toolbox">
     <div class="opt-head">
-      <span class="bar accent-pink"></span>
+      <span class="bar accent-pink" aria-hidden="true"></span>
       <div>
         <h2>提示词优化器</h2>
         <p class="sub">把粗糙提示词贴进来，点「优化」自动重组成结构化版本（角色 + 任务 + 约束 + 输出格式）。完全离线、无需密钥，预览内也能直接用。</p>
@@ -124,67 +128,74 @@
 
     <div class="opt-work">
       <!-- 左栏：输入 -->
-      <section class="opt-pane opt-left">
-        <div class="pane-label"><span class="dot"></span>原始提示词</div>
-        <textarea id="opt-input" placeholder="例如：帮我写个产品周报，要好看一点"></textarea>
-        <div class="opt-meta"><span id="opt-count">0 字</span></div>
+      <section class="opt-pane opt-left" aria-label="提示词输入区">
+        <label class="pane-label" for="opt-input"><span class="dot" aria-hidden="true"></span>原始提示词</label>
+        <textarea id="opt-input" placeholder="例如：帮我写个产品周报，要好看一点" aria-describedby="opt-count"></textarea>
+        <div class="opt-meta"><span id="opt-count" aria-live="off">0 字</span></div>
 
-        <div class="dir-label">优化方向</div>
-        <div class="dir-row">
-          <button type="button" class="dir active" data-dir="">自动</button>
-          <button type="button" class="dir" data-dir="用户研究">用户研究</button>
-          <button type="button" class="dir" data-dir="增长运营">增长运营</button>
-          <button type="button" class="dir" data-dir="数据分析">数据分析</button>
-          <button type="button" class="dir" data-dir="内容营销">内容营销</button>
-          <button type="button" class="dir" data-dir="技术研发">技术研发</button>
+        <div class="dir-label" id="dir-label">优化方向</div>
+        <div class="dir-row" role="group" aria-labelledby="dir-label">
+          <button type="button" class="dir active" data-dir="" aria-pressed="true" aria-label="优化方向：自动识别">自动</button>
+          <button type="button" class="dir" data-dir="用户研究" aria-pressed="false" aria-label="优化方向：用户研究">用户研究</button>
+          <button type="button" class="dir" data-dir="增长运营" aria-pressed="false" aria-label="优化方向：增长运营">增长运营</button>
+          <button type="button" class="dir" data-dir="数据分析" aria-pressed="false" aria-label="优化方向：数据分析">数据分析</button>
+          <button type="button" class="dir" data-dir="内容营销" aria-pressed="false" aria-label="优化方向：内容营销">内容营销</button>
+          <button type="button" class="dir" data-dir="技术研发" aria-pressed="false" aria-label="优化方向：技术研发">技术研发</button>
         </div>
 
         <div class="opt-actions">
-          <button class="btn primary" id="opt-run">⚡ 优化提示词</button>
+          <button type="button" class="btn primary" id="opt-run" aria-label="开始优化提示词" aria-controls="opt-result">⚡ 优化提示词</button>
         </div>
 
         <details class="adv">
           <summary>🔧 高级：接入你自己的模型 API（真 AI 改写）</summary>
           <div class="adv-body">
-            <div class="adv-presets">预设：
-              <button type="button" class="chip" data-base="https://api.openai.com/v1" data-model="gpt-4o-mini">OpenAI</button>
-              <button type="button" class="chip" data-base="https://api.deepseek.com/v1" data-model="deepseek-chat">DeepSeek</button>
-              <button type="button" class="chip" data-base="https://dashscope.aliyuncs.com/compatible-mode/v1" data-model="qwen-plus">通义千问</button>
-              <button type="button" class="chip" data-base="https://api.moonshot.cn/v1" data-model="moonshot-v1-8k">Kimi</button>
+            <div class="adv-presets" id="preset-label">预设：
+              <button type="button" class="chip" data-base="https://api.openai.com/v1" data-model="gpt-4o-mini" aria-label="填入 OpenAI 预设地址与模型">OpenAI</button>
+              <button type="button" class="chip" data-base="https://api.deepseek.com/v1" data-model="deepseek-chat" aria-label="填入 DeepSeek 预设地址与模型">DeepSeek</button>
+              <button type="button" class="chip" data-base="https://dashscope.aliyuncs.com/compatible-mode/v1" data-model="qwen-plus" aria-label="填入通义千问预设地址与模型">通义千问</button>
+              <button type="button" class="chip" data-base="https://api.moonshot.cn/v1" data-model="moonshot-v1-8k" aria-label="填入 Kimi 预设地址与模型">Kimi</button>
             </div>
-            <label>API Base URL<input id="opt-base" type="text" placeholder="https://api.openai.com/v1" autocomplete="off"></label>
-            <label>API Key<input id="opt-key" type="password" placeholder="sk-..." autocomplete="off"></label>
-            <label>模型名<input id="opt-model" type="text" placeholder="gpt-4o-mini" autocomplete="off"></label>
-            <label class="chk"><input type="checkbox" id="opt-useai"> 使用 AI 模型优化（勾选后调用上方接口，失败自动回退规则式）</label>
+            <label for="opt-base">API Base URL<input id="opt-base" type="text" placeholder="https://api.openai.com/v1" autocomplete="off" spellcheck="false"></label>
+            <label for="opt-key">API Key<input id="opt-key" type="password" placeholder="sk-..." autocomplete="off" spellcheck="false"></label>
+            <label for="opt-model">模型名<input id="opt-model" type="text" placeholder="gpt-4o-mini" autocomplete="off" spellcheck="false"></label>
+            <label class="chk" for="opt-useai"><input type="checkbox" id="opt-useai"> 使用 AI 模型优化（勾选后调用上方接口，失败自动回退规则式）</label>
             <p class="adv-note">⚠️ 密钥仅保存在你本地浏览器（localStorage），不会上传到任何服务器；纯前端直接调用模型接口，请仅在可信设备上使用。</p>
           </div>
         </details>
       </section>
 
       <!-- 右栏：结果 -->
-      <section class="opt-pane opt-right">
+      <section class="opt-pane opt-right" aria-label="优化结果区">
         <div class="pane-label split">
-          <span class="pl-title"><span class="dot"></span>优化后的提示词</span>
-          <span id="opt-status" class="status idle">待优化</span>
+          <span class="pl-title"><span class="dot" aria-hidden="true"></span>优化后的提示词</span>
+          <span id="opt-status" class="status idle" role="status" aria-live="polite">待优化</span>
         </div>
-        <div class="result" id="opt-result"></div>
+        <div class="result" id="opt-result" tabindex="0" role="region" aria-label="优化后的提示词内容"></div>
         <div class="tips" id="opt-tips"></div>
         <div class="opt-actions right">
-          <button class="btn" id="opt-copy" style="display:none">📋 复制结果</button>
-          <button class="btn ghost" id="opt-clear">清空</button>
-          <span class="ok" id="opt-ok">已复制 ✓</span>
+          <button type="button" class="btn" id="opt-copy" style="display:none" aria-label="复制优化后的提示词">📋 复制结果</button>
+          <button type="button" class="btn ghost" id="opt-clear" aria-label="清空输入与结果">清空</button>
+          <span class="ok" id="opt-ok" role="status" aria-live="polite">已复制 ✓</span>
         </div>
       </section>
     </div>
 
-    <img class="sticker opt-sticker opt-carrot" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="74" height="74">
-    <img class="sticker opt-sticker opt-dog" src="assets/stickers/dog-lie.webp" alt="" aria-hidden="true" width="120" height="106">
+    <img class="sticker opt-sticker opt-carrot" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="74" height="74" loading="lazy" decoding="async">
+    <img class="sticker opt-sticker opt-dog" src="assets/stickers/dog-lie.webp" alt="" aria-hidden="true" width="120" height="107" loading="lazy" decoding="async">
   </div>
 
-  <footer>
-    中文动态与 GitHub 精选由我每日更新并嵌入页面；海外 AI 动态区为 Hacker News + GitHub 实时抓取，并在浏览器端自动翻译为中文（下附英文原文）。<br/>
-    若当前预览环境限制外部请求，海外区会展示已预翻成中文的备用数据；用系统浏览器打开可恢复实时抓取与翻译。<br/>
-    本页面为本地单文件，适合每个工作日上午工位打卡 ☀️
+  <footer class="footer-note" aria-label="项目说明与版权">
+    <span class="tape green footer-tape" aria-hidden="true"></span>
+    <span class="tape butter footer-tape-b" aria-hidden="true"></span>
+    <div class="footer-body">
+      <div class="footer-title">📌 关于这个仪表盘</div>
+      <p>中文动态与 GitHub 精选由我每日更新并嵌入页面；海外 AI 动态区为 Hacker News + GitHub 实时抓取，并在浏览器端自动翻译为中文（下附英文原文）。</p>
+      <p>若当前预览环境限制外部请求，海外区会展示已预翻成中文的备用数据；用系统浏览器打开可恢复实时抓取与翻译。</p>
+      <p>本页面为本地静态页面，适合每个工作日上午工位打卡 ☀️</p>
+      <p class="footer-copy">© 2026 AI 产品经理晨间仪表盘 · 内容与数据仅供参考</p>
+    </div>
+    <img class="sticker footer-group" src="assets/stickers/group-circle.webp" alt="" aria-hidden="true" width="150" height="150" loading="lazy" decoding="async">
   </footer>
 
 </div>
