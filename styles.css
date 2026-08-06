@@ -677,6 +677,14 @@
     .footer-note{padding:22px 150px 22px 22px;}
     .footer-group{width:118px;height:118px;right:4px;bottom:-10px;}
     .footer-tape-b{display:none;}
+    /* 平板触屏：导航与预设 chip 触控区 ≥44px */
+    .nav-links a{min-height:var(--tap);}
+    .opt .chip{min-height:var(--tap);}
+  }
+  /* 任意宽度的触屏设备（触屏笔记本等）：保证触控区 ≥44px */
+  @media (pointer:coarse){
+    .nav-links a{min-height:var(--tap);}
+    .opt .chip{min-height:var(--tap);}
   }
   /* 手机 / 390px */
   @media(max-width:680px){
