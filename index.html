@@ -9,7 +9,23 @@
 <body>
 <div class="wrap">
 
-  <header class="top">
+  <nav class="nav" aria-label="主导航">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#overview" aria-label="返回顶部">
+        <img class="sticker dog" src="assets/stickers/dog-thinking.webp" alt="" aria-hidden="true" width="42" height="42">
+        <span class="name">AI 产品经理晨间仪表盘<small>每天工位打卡 · 温柔开工</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#overview">今日概览</a>
+        <a href="#tracking">动态追踪</a>
+        <a href="#caps">能力提升</a>
+        <a href="#toolbox">工具箱</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="top" id="overview">
+    <span class="tape butter" aria-hidden="true" style="top:-11px;left:26px;"></span>
     <div class="greet">
       <h1 id="greet">早上好 👋</h1>
       <div class="sub">AI / 大模型行业晨报 · <span class="date" id="today">—</span> · 产品经理版</div>
@@ -23,7 +39,7 @@
     </div>
   </header>
 
-  <div class="tip" id="tip-box">
+  <div class="tip torn-note" id="tip-box">
     <span class="ic">☕</span>
     <div id="tip">坐下来，花 3 分钟扫一眼今日 AI 圈在发生什么，再挑一条能力练练手。</div>
   </div>
@@ -35,20 +51,20 @@
     <div class="stat"><div class="k">最近更新</div><div class="v" id="s-upd" style="font-size:15px;">—</div></div>
   </div>
 
-  <div class="section-head">
-    <h2><span class="bar" style="background:var(--green)"></span>中文行业动态</h2>
+  <div class="section-head" id="tracking">
+    <h2 class="section-label"><span class="bar accent-green"></span>中文行业动态</h2>
     <div class="meta">每日精选 · 已读即可转述</div>
   </div>
   <div class="news" id="cn-news"></div>
 
   <div class="section-head">
-    <h2><span class="bar" style="background:#8b5cf6"></span>本周 GitHub 高赞开源 Skills</h2>
+    <h2 class="section-label"><span class="bar accent-amber"></span>本周 GitHub 高赞开源 Skills</h2>
     <div class="meta">按最近 7 天活跃度/Star 排序</div>
   </div>
   <div class="gh-grid" id="gh-weekly"></div>
 
   <div class="section-head">
-    <h2><span class="bar" style="background:var(--amber)"></span>海外 AI 动态（已译中文）</h2>
+    <h2 class="section-label"><span class="bar accent-amber"></span>海外 AI 动态（已译中文）</h2>
     <div class="meta" id="news-meta">实时抓取 + 翻译中…</div>
   </div>
   <div class="news" id="news">
@@ -57,13 +73,13 @@
   </div>
 
   <div class="section-head">
-    <h2><span class="bar" style="background:var(--teal)"></span>产品经理能力加油站</h2>
+    <h2 class="section-label"><span class="bar accent-teal"></span>产品经理能力加油站</h2>
     <div class="meta">每天挑 1 项刻意练习</div>
   </div>
   <div class="caps" id="caps"></div>
 
-  <div class="opt">
-    <div class="head"><span class="bar"></span><h2>提示词优化器</h2></div>
+  <div class="opt" id="toolbox">
+    <div class="head"><span class="bar accent-pink"></span><h2>提示词优化器</h2></div>
     <p class="sub">把你想写的粗糙提示词贴进来，点「优化」自动重组成结构化版本（角色 + 任务 + 约束 + 输出格式）。完全离线、无需密钥，WorkBuddy 预览里也能直接用。</p>
     <textarea id="opt-input" placeholder="例如：帮我写个产品周报，要好看一点"></textarea>
     <div class="row">
