@@ -111,6 +111,22 @@
   .cap .act{font-size:12.5px;background:#f7f8fc;border:1px solid var(--line);border-radius:9px;padding:8px 10px;color:var(--ink);}
   .cap .act b{color:var(--teal);}
 
+  /* Prompt optimizer */
+  .opt{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 20px;box-shadow:var(--shadow);margin-bottom:34px;}
+  .opt .head{display:flex;align-items:center;gap:9px;margin-bottom:4px;}
+  .opt .head .bar{width:4px;height:18px;background:var(--teal);border-radius:3px;display:inline-block;}
+  .opt .head h2{font-size:18px;margin:0;font-weight:700;}
+  .opt .sub{color:var(--ink-faint);font-size:12.5px;margin:0 0 14px;}
+  .opt textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px;font-family:inherit;color:var(--ink);background:#fbfcfe;line-height:1.6;}
+  .opt textarea:focus{outline:none;border-color:var(--brand);background:#fff;}
+  .opt .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px;}
+  .opt .result{margin-top:16px;border:1px dashed var(--brand);border-radius:12px;padding:14px 16px;background:#fafbff;white-space:pre-wrap;font-size:13.5px;line-height:1.7;color:var(--ink);display:none;}
+  .opt .result.show{display:block;}
+  .opt .tips{margin-top:14px;display:none;flex-direction:column;gap:6px;}
+  .opt .tips.show{display:flex;}
+  .opt .tips .t{font-size:12.5px;color:var(--ink-soft);display:flex;gap:8px;align-items:flex-start;}
+  .opt .ok{color:var(--green);font-size:12px;font-weight:600;margin-left:4px;display:none;}
+
   /* states */
   .skeleton{height:62px;border-radius:var(--radius);background:linear-gradient(90deg,#eef1f6 25%,#e3e7ef 37%,#eef1f6 63%);background-size:400% 100%;animation:sh 1.3s ease infinite;border:1px solid var(--line);}
   @keyframes sh{0%{background-position:100% 0}100%{background-position:-100% 0}}
@@ -182,6 +198,20 @@
     <div class="meta">每天挑 1 项刻意练习</div>
   </div>
   <div class="caps" id="caps"></div>
+
+  <div class="opt">
+    <div class="head"><span class="bar"></span><h2>提示词优化器</h2></div>
+    <p class="sub">把你想写的粗糙提示词贴进来，点「优化」自动重组成结构化版本（角色 + 任务 + 约束 + 输出格式）。完全离线、无需密钥，WorkBuddy 预览里也能直接用。</p>
+    <textarea id="opt-input" placeholder="例如：帮我写个产品周报，要好看一点"></textarea>
+    <div class="row">
+      <button class="btn primary" id="opt-run">⚡ 优化提示词</button>
+      <button class="btn" id="opt-clear">清空</button>
+      <button class="btn" id="opt-copy" style="display:none">📋 复制结果</button>
+      <span class="ok" id="opt-ok">已复制 ✓</span>
+    </div>
+    <div class="result" id="opt-result"></div>
+    <div class="tips" id="opt-tips"></div>
+  </div>
 
   <footer>
     中文动态与 GitHub 精选由我每日更新并嵌入页面；海外 AI 动态区为 Hacker News + GitHub 实时抓取，并在浏览器端自动翻译为中文（下附英文原文）。<br/>
@@ -502,8 +532,92 @@ function initHeader(){
   document.getElementById("tip").textContent = TIPS[now.getDay() % TIPS.length];
 }
 
+/* ---------- 提示词优化器（离线规则式，无需密钥） ---------- */
+function optimizePrompt(raw){
+  const text = (raw||"").trim();
+  if(!text) return null;
+  let domain = "AI 产品";
+  if(/(用户|需求|调研|访谈|痛点|体验)/.test(text)) domain = "用户研究";
+  else if(/(运营|增长|投放|转化|留存|拉新)/.test(text)) domain = "增长运营";
+  else if(/(数据|指标|分析|报表|看板|埋点)/.test(text)) domain = "数据分析";
+  else if(/(文案|推文|海报|营销|品牌|种草)/.test(text)) domain = "内容营销";
+  else if(/(代码|开发|bug|接口|前端|后端|测试)/.test(text)) domain = "技术研发";
+
+  const optimized =
+"# 角色\n"+
+"你是一位资深的"+domain+"专家，擅长把模糊诉求转化成清晰、可执行的方案。\n\n"+
+"# 任务\n"+
+text+"\n\n"+
+"# 约束\n"+
+"- 使用简洁、准确的中文，避免空话套话\n"+
+"- 聚焦可落地结论，必要时给出优先级或取舍建议\n"+
+"- 涉及专业术语时一句话解释清楚\n\n"+
+"# 输出格式\n"+
+"- 核心结论：\n"+
+"- 关键要点（分点，3-5 条）：\n"+
+"- 下一步行动建议（可执行的 1-3 步）：\n"+
+"- 风险 / 注意事项：\n\n"+
+"# 示例（可选，补充 1 个输入-输出范例能显著提升效果）\n"+
+"[在此粘贴一个参考示例]";
+
+  const tips = [];
+  if(!/(你|作为|假设|你是|请扮演|role)/i.test(text)) tips.push("原文缺少「角色设定」——已自动补上领域专家角色，让模型输出更稳。");
+  if(!/(格式|结构|分点|列表|模板|输出)/.test(text)) tips.push("原文没有明确「输出格式」——已加入结构化模板，结果更可控。");
+  if(!/(约束|不要|避免|限制|要求|必须)/.test(text)) tips.push("原文缺少「约束条件」——已加入简洁/可落地等约束，减少废话。");
+  if(text.length < 20) tips.push("原文较短，建议补充背景或目标对象，优化效果会更好。");
+  if(/(示例|例子|sample|example)/i.test(text)) tips.push("已包含示例占位，填入真实范例可大幅提升质量。");
+  return {optimized, tips};
+}
+
+function bindOptimizer(){
+  const input = document.getElementById("opt-input");
+  const resultEl = document.getElementById("opt-result");
+  const tipsEl = document.getElementById("opt-tips");
+  const copyBtn = document.getElementById("opt-copy");
+  const okEl = document.getElementById("opt-ok");
+
+  document.getElementById("opt-run").addEventListener("click", ()=>{
+    const res = optimizePrompt(input.value);
+    if(!res){
+      resultEl.textContent = "请先输入你想优化的提示词 🙏";
+      resultEl.classList.add("show");
+      tipsEl.classList.remove("show");
+      copyBtn.style.display = "none";
+      okEl.style.display = "none";
+      return;
+    }
+    resultEl.textContent = res.optimized;
+    resultEl.classList.add("show");
+    copyBtn.style.display = "inline-flex";
+    okEl.style.display = "none";
+    tipsEl.innerHTML = res.tips.map(t=>`<div class="t"><span class="ic">💡</span><span>${escapeHtml(t)}</span></div>`).join("");
+    tipsEl.classList.add("show");
+  });
+
+  document.getElementById("opt-clear").addEventListener("click", ()=>{
+    input.value = "";
+    resultEl.classList.remove("show");
+    tipsEl.classList.remove("show");
+    copyBtn.style.display = "none";
+    okEl.style.display = "none";
+  });
+
+  copyBtn.addEventListener("click", async ()=>{
+    const txt = resultEl.textContent;
+    try{
+      await navigator.clipboard.writeText(txt);
+      okEl.style.display = "inline";
+      setTimeout(()=>okEl.style.display="none", 1500);
+    }catch(e){
+      const range = document.createRange(); range.selectNodeContents(resultEl);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    }
+  });
+}
+
 /* ---------- 启动 ---------- */
 initHeader();
+bindOptimizer();
 renderCnNews();
 renderGH();
 renderCaps();
