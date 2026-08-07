@@ -2,54 +2,63 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"国产模型与算力共振，AI 全产业链景气度持续上升",
-    url:"https://finance.sina.com.cn/jjxw/2026-08-06/doc-inimikrp3158464.shtml",
-    source:"中国证券报",
-    time:"2026-08-06T05:02:20+08:00",
-    desc:"DeepSeek、Seedance、MiniMax、Kimi、千问等国产大模型密集发版；7 月 OpenRouter 调用量前六均为中国开源模型。微软/Alphabet/Meta/亚马逊上调 2026 年资本开支，算力板块集体走强。"
+    title:"OpenAI 免费版默认模型升级 GPT-5.6 Luna，下周起文本对话不限量",
+    url:"https://www.163.com/dy/article/L3NGE4NC05568W0A.html",
+    source:"机器之心",
+    time:"2026-08-07T08:00:00+08:00",
+    desc:"免费与 Go 用户换用 Luna 并新增 Think 按钮；Plus/Pro 的 Sol 加入思考深度滑杆。官方自评事实错误率较上代降低约 62%~68%，底气来自 Luna API 降价 80%。"
   },
   {
-    title:"DeepSeek 重启融资估值 5000 亿元；字节发布 SeedRealtime；Sand.ai 开源千亿级 MoE 视频模型",
-    url:"https://dy.163.com/article/L3KQJ61A05562DGT.html",
-    source:"极新早报",
-    time:"2026-08-06T08:05:11+08:00",
-    desc:"今日要点：Qwen-Image-3.0 上线、Liquid AI 发布端侧小模型 LFM2.5、京东开源 JoyAI-Video-Edit、Mistral 推出内容审核模型 Shieldstral、英伟达 Alpamayo 2 开放商用。"
+    title:"融资密集落地，AI 视频大模型竞速商业化",
+    url:"https://finance.sina.com.cn/jjxw/2026-08-07/doc-inimmpqx0250460.shtml",
+    source:"经济参考报",
+    time:"2026-08-07T07:30:00+08:00",
+    desc:"近三个月可灵、生数、爱诗、演语累计融资近 300 亿元；可灵近 30 亿美元创全球纪录，估值 180 亿美元。中信证券判断终局或收敛为 3-4 家寡头。"
   },
   {
-    title:"京东开源实时流式视频编辑模型 JoyAI-Video-Edit",
-    url:"https://new.qq.com/rain/a/20260806A02DR600",
-    source:"每日经济新闻",
-    time:"2026-08-06T08:00:00+08:00",
-    desc:"用户可边看视频边改人物与场景，把视频创作从“先拍后剪”变成实时互动编辑；底层也可用于具身智能数据合成。"
+    title:"AI 早报：字节「拒绝蒸馏」、Meta 发布编程智能体 Muse Code、DeepSeek 拟涨价",
+    url:"https://www.163.com/dy/article/L3NFPB7N0534A4SC.html",
+    source:"界面新闻",
+    time:"2026-08-07T08:54:00+08:00",
+    desc:"谷歌 DeepMind 人事巨变，哈萨比斯转任董事长、杰夫·迪恩离职创业；红杉完成 100 亿美元募资并向 Anthropic 追投 25 亿美元；DeepSeek 预告 API 大幅提价。"
   },
   {
-    title:"字节跳动发布原生音视频全双工大模型 SeedRealtime",
-    url:"https://new.qq.com/rain/a/20260806A02DR600",
-    source:"每日经济新闻",
-    time:"2026-08-06T08:00:00+08:00",
-    desc:"统一架构融合音频、视频与文本，能在连续多模态信息流上实时交互，已在豆包 App 全量上线，是向“全能 AI 伴侣”升级的关键一步。"
+    title:"OpenAI 首款智能体硬件曝光：无屏 AI 音箱，艾维操刀设计",
+    url:"https://new.qq.com/rain/a/20260807A04CGG00",
+    source:"腾讯科技",
+    time:"2026-08-07T09:00:00+08:00",
+    desc:"冰球大小、无显示屏，搭载 GPTLive 实时语音与环境传感器，售价预计 300-400 美元。产品中心从屏幕/App 转向 Agent，是个人计算范式的一次重新定义。"
   },
   {
-    title:"AI Brief：Anthropic 百亿云算力协议、Google Gemini 3.6 Flash、AirLLM 低成本运行大模型",
-    url:"https://aibreakingwire.com/news/ai-brief-2026-08-06",
-    source:"AI Breaking Wire",
-    time:"2026-08-06T00:00:00+08:00",
-    desc:"海外要闻：Anthropic 与 Volta 签署 100 亿美元六年云协议；Google 发布 Gemini 3.6 Flash 等轻量模型；AirLLM 可用 4GB 显存跑 Kimi K3；GLM-5.2 安全测试零拒绝引争议。"
+    title:"时报观察：AI 赛道风向转变，迈向追求实效新阶段",
+    url:"https://www.163.com/dy/article/L3NA27J5053469RG.html",
+    source:"证券时报",
+    time:"2026-08-07T07:14:00+08:00",
+    desc:"阿里「千问办公」公测，字节、腾讯同步整合 AI 产品线。靠炫酷演示博热度的时代结束，落地成效、合规水平、客户留存成为衡量企业 AI 价值的硬指标。"
+  },
+  {
+    title:"中国开源大模型在非洲快速普及，硅谷感到担忧",
+    url:"https://www.163.com/dy/article/L3NGRQFJ05504DOQ.html",
+    source:"环球时报（译自纽约时报）",
+    time:"2026-08-07T06:00:00+08:00",
+    desc:"OpenRouter 上中国开源模型已占用量约一半，一年前仅 25%；Hugging Face 下载量前 25 名中 19 个来自中国。开发者称可省下高达 90% 的综合成本。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:151463, desc:"可视化 AI 工作流与 RAG 平台：一个协作空间内完成 Agent 编排、模型接入、知识库到生产部署。", updated:"2026-08-06T00:54:56Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:83221, desc:"AI 驱动的软件开发代理，可像人类开发者一样编写、运行和调试代码。", updated:"2026-08-06T00:54:55Z"},
-  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:73812, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA、全参数微调等多种方案。", updated:"2026-08-06T00:30:08Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:38661, desc:"多平台 AI 机器人 / Agent 开发框架，可接入微信、QQ、Discord 等 IM 与多种大模型。", updated:"2026-08-06T01:01:51Z"},
-  {name:"khoj-ai/khoj", url:"https://github.com/khoj-ai/khoj", stars:36290, desc:"自托管 AI 第二大脑，从网页或个人文档中检索答案，支持自定义 Agent 与自动化研究。", updated:"2026-08-06T00:34:36Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29266, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索、可视化 AI 工作流编排。", updated:"2026-08-05T22:24:25Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:23974, desc:"Prompt / Agent / RAG 测试与红队评估工具，支持 CI/CD 集成，OpenAI 与 Anthropic 也在用。", updated:"2026-08-05T23:16:52Z"},
-  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19650, desc:"开源 Agentic 数据助手，面向下一代 AI + Data 产品，支持数据库对话与分析。", updated:"2026-08-05T14:40:37Z"},
-  {name:"datawhalechina/easy-vibe", url:"https://github.com/datawhalechina/easy-vibe", stars:18762, desc:"给 AI 原生产品人的第一节课，适合产品经理系统入门 AI 应用构建。", updated:"2026-08-05T23:58:58Z"},
-  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18198, desc:"企业私有 AI 搜索与 Agent 平台，内置 Agent Builder、深度研究与文档分析。", updated:"2026-08-05T22:31:28Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:151599, desc:"可视化 AI 工作流与 RAG 平台：一个协作空间内完成 Agent 编排、模型接入、知识库到生产部署。", updated:"2026-08-07T01:29:51Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:83299, desc:"AI 驱动的软件开发代理，可像人类开发者一样编写、运行和调试代码。", updated:"2026-08-07T00:16:26Z"},
+  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:73857, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA、全参数微调等多种方案。", updated:"2026-08-06T07:09:01Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:38734, desc:"多平台 AI 机器人 / Agent 开发框架，可接入微信、QQ、Discord 等 IM 与多种大模型。", updated:"2026-08-05T18:01:24Z"},
+  {name:"khoj-ai/khoj", url:"https://github.com/khoj-ai/khoj", stars:36351, desc:"自托管 AI 第二大脑，从网页或个人文档中检索答案，支持自定义 Agent 与自动化研究。", updated:"2026-08-02T01:55:40Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29276, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索、可视化 AI 工作流编排。", updated:"2026-08-06T10:38:11Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:24019, desc:"Prompt / Agent / RAG 测试与红队评估工具，支持 CI/CD 集成，OpenAI 与 Anthropic 也在用。", updated:"2026-08-07T00:03:59Z"},
+  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19653, desc:"开源 Agentic 数据助手，面向下一代 AI + Data 产品，支持数据库对话与分析。", updated:"2026-08-03T13:05:20Z"},
+  {name:"datawhalechina/easy-vibe", url:"https://github.com/datawhalechina/easy-vibe", stars:18784, desc:"给 AI 原生产品人的第一节课，适合产品经理系统入门 AI 应用构建。", updated:"2026-08-06T17:11:59Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18198, desc:"企业私有 AI 搜索与 Agent 平台，内置 Agent Builder、深度研究与文档分析。", updated:"2026-08-06T15:31:11Z"},
+  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14851, desc:"开源 GPT/LLM Agent 构建与部署平台，可视化搭建对话机器人并一键上线。", updated:"2026-08-06T19:41:22Z"},
+  {name:"e2b-dev/E2B", url:"https://github.com/e2b-dev/E2B", stars:13279, desc:"为 AI Agent 提供的开源安全沙箱运行环境，内置真实工具链，面向企业级场景。", updated:"2026-08-06T23:08:37Z"}
 ];
 
 /* ---------- 产品经理能力（精选静态内容） ---------- */
