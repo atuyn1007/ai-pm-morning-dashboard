@@ -636,7 +636,7 @@ function bindSkillSearch(){
     const zh = input.value.trim();
     if(!zh){
       setStatus("empty", "⚠️ 先输入需求");
-      grid.innerHTML = '<div class="skill-hint">先把你的需求写进去，比如「自动整理会议纪要」～</div>';
+      grid.innerHTML = '<div class="skill-hint">输入中文需求，自动翻译后搜索 GitHub 开源 skill</div>';
       return;
     }
     btn.disabled = true; btn.setAttribute("aria-busy","true");
@@ -653,14 +653,14 @@ function bindSkillSearch(){
     try{
       const repos = await searchSkillRepos(searchTerm);
       if(repos.length === 0){
-        grid.innerHTML = '<div class="skill-hint">没找到匹配的仓库，换个说法试试？例如「meeting notes summarizer skill」。</div>';
+        grid.innerHTML = '<div class="skill-hint">未找到匹配仓库，换个关键词再试</div>';
         setStatus("empty", "无结果");
       }else{
         grid.innerHTML = repos.map(renderSkillCard).join("");
         setStatus("success", "✅ 找到 " + repos.length + " 个");
       }
     }catch(e){
-      grid.innerHTML = '<div class="skill-hint">搜索失败：' + escapeHtml(e && e.message ? e.message : e) + '。可能是网络受限或触发 GitHub 限流，稍后重试。</div>';
+      grid.innerHTML = '<div class="skill-hint">搜索失败：' + escapeHtml(e && e.message ? e.message : e) + '，稍后重试</div>';
       setStatus("fallback", "⚠️ 搜索失败");
     }finally{
       btn.disabled = false; btn.removeAttribute("aria-busy");
