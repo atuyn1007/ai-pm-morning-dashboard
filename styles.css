@@ -96,7 +96,7 @@
   .wrap{max-width:1080px;margin:0 auto;padding:22px 22px 64px;}
 
   /* 锚点不被吸顶导航遮挡 */
-  #overview,#tracking,#caps,#toolbox{scroll-margin-top:calc(var(--nav-h) + 14px);}
+  #overview,#tracking,#caps,#skill-search,#toolbox{scroll-margin-top:calc(var(--nav-h) + 14px);}
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -544,6 +544,41 @@
   .opt-sticker{position:absolute;z-index:3;pointer-events:none;user-select:none;}
   .opt-carrot{top:-16px;right:-8px;width:var(--sticker-s);height:var(--sticker-s);}
   .opt-dog{bottom:-20px;left:-8px;width:120px;height:107px;}
+
+  /* ============================================================
+     GitHub Skill 搜索 · 中文翻译检索
+     ============================================================ */
+  .skill-wrap{position:relative;margin-bottom:var(--section-gap);}
+  .skill-sticker{top:auto;bottom:-12px;right:-4px;}
+  .skill-box{
+    position:relative;background:var(--paper-warm);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow-card);padding:var(--gap-lg);
+  }
+  .skill-input-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .skill-input{
+    flex:1 1 280px;min-width:0;
+    font-size:14px;padding:11px 14px;border:1px solid var(--line);border-radius:var(--radius-sm);
+    font-family:inherit;color:var(--ink);background:#fff;min-height:44px;
+    transition:border-color var(--ease),box-shadow var(--ease);
+  }
+  .skill-input:focus{outline:none;border-color:var(--pink-600);box-shadow:0 0 0 3px rgba(201,63,99,.18);}
+  .skill-input::placeholder{color:var(--ink-faint);}
+  .skill-meta{display:flex;align-items:center;gap:12px;margin:12px 0 4px;flex-wrap:wrap;}
+  .skill-query{font-size:var(--fs-sm);color:var(--ink-soft);font-style:italic;word-break:break-word;}
+  .skill-grid{margin-bottom:0;margin-top:12px;}
+  .skill-hint{
+    grid-column:1 / -1;
+    color:var(--ink-faint);font-size:13px;padding:24px;text-align:center;
+    background:var(--paper);border:1px dashed var(--line);border-radius:var(--radius);
+  }
+  .skill-grid .gh .lang{
+    font-size:11px;color:var(--ink-faint);background:var(--paper);
+    border:1px solid var(--line);border-radius:999px;padding:1px 9px;font-weight:700;
+  }
+  @media(max-width:820px){
+    .skill-input-row{flex-direction:column;align-items:stretch;}
+    .skill-input-row .btn{width:100%;}
+  }
 
   /* ============================================================
      状态

@@ -23,6 +23,7 @@
         <a href="#overview">今日概览</a>
         <a href="#tracking">动态追踪</a>
         <a href="#caps">能力提升</a>
+        <a href="#skill-search">搜 Skill</a>
         <a href="#toolbox">工具箱</a>
       </div>
     </div>
@@ -105,6 +106,30 @@
     <div class="news news-clip" id="news">
       <div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div>
       <div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="section-head      </div>
+  </div>
+
+  <div class="section-wrap skill-wrap" id="skill-search">
+    <div class="section-head">
+      <h2 class="section-label"><span class="bar accent-teal" aria-hidden="true"></span>GitHub Skill 搜索</h2>
+      <div class="meta">输入中文 → 自动翻译 → 搜开源 skill</div>
+    </div>
+    <img class="sticker sec-sticker skill-sticker" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="88" height="88" loading="lazy" decoding="async">
+    <div class="skill-box paper-card">
+      <div class="skill-input-row">
+        <input type="text" id="skill-input" class="skill-input" placeholder="例如：帮我自动整理会议纪要的 skill" aria-label="输入中文需求" autocomplete="off" enterkeyhint="search">
+        <button type="button" class="btn primary" id="skill-run" aria-controls="skill-results">🔎 翻译并搜索</button>
+      </div>
+      <div class="skill-meta">
+        <span id="skill-status" class="status idle" role="status" aria-live="polite">待搜索</span>
+        <span id="skill-query" class="skill-query"></span>
+      </div>
+      <div class="gh-grid gh-shelf skill-grid" id="skill-results" aria-live="polite">
+        <div class="skill-hint">输入你的需求，比如「把网页内容转成结构化笔记的 skill」，点搜索即可。</div>
+      </div>
     </div>
   </div>
 

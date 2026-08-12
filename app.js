@@ -558,9 +558,123 @@ function bindOptimizer(){
   });
 }
 
+/* ---------- 中文 → 英文翻译（用于 GitHub 搜索检索） ---------- */
+async function translateZh2En(text){
+  const q = encodeURIComponent(text);
+  // 源1: Google gtx（质量好、免密钥、支持 CORS）
+  try{
+    const ctrl = new AbortController();
+    const tid = setTimeout(()=>ctrl.abort(), 6000);
+    const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=en&dt=t&q=${q}`, {signal:ctrl.signal});
+    clearTimeout(tid);
+    if(r.ok){
+      const j = await r.json();
+      let t = "";
+      if(Array.isArray(j) && Array.isArray(j[0])) t = j[0].map(seg=>seg[0]||"").join("");
+      if(t.trim()) return t.trim();
+    }
+  }catch(e){}
+  // 源2: MyMemory（兜底，免密钥、支持 CORS，匿名限额约 500 词/日）
+  try{
+    const ctrl = new AbortController();
+    const tid = setTimeout(()=>ctrl.abort(), 6000);
+    const r = await fetch(`https://api.mymemory.translated.net/get?q=${q}&langpair=zh-CN|en`, {signal:ctrl.signal});
+    clearTimeout(tid);
+    if(r.ok){
+      const j = await r.json();
+      const t = j?.responseData?.translatedText;
+      if(t) return t;
+    }
+  }catch(e){}
+  return null;
+}
+
+/* ---------- GitHub 仓库搜索（中文需求 → 英文检索） ---------- */
+async function searchSkillRepos(query){
+  const q = encodeURIComponent(query + " stars:>30");
+  const url = `https://api.github.com/search/repositories?q=${q}&sort=stars&order=desc&per_page=12`;
+  const ctrl = new AbortController();
+  const tid = setTimeout(()=>ctrl.abort(), 10000);
+  const r = await fetch(url, {headers:{"Accept":"application/vnd.github+json"}});
+  clearTimeout(tid);
+  if(!r.ok) throw new Error("GitHub HTTP " + r.status);
+  const data = await r.json();
+  return (data.items||[]).map(item=>({
+    name:item.full_name,
+    url:item.html_url,
+    stars:item.stargazers_count,
+    desc:item.description || "（无简介）",
+    lang:item.language || "—",
+    updated:item.pushed_at || item.updated_at
+  }));
+}
+
+function renderSkillCard(x){
+  return `
+    <div class="gh">
+      <div class="top">
+        <a class="name" href="${x.url}" target="_blank" rel="noopener">${escapeHtml(x.name)}</a>
+        <span class="stars">⭐ ${x.stars.toLocaleString()}</span>
+      </div>
+      <div class="desc">${escapeHtml(x.desc)}</div>
+      <div class="foot">
+        <span class="lang">${escapeHtml(x.lang)}</span>
+        <span>更新于 ${timeAgo(x.updated)}</span>
+      </div>
+    </div>`;
+}
+
+function bindSkillSearch(){
+  const input = document.getElementById("skill-input");
+  const btn = document.getElementById("skill-run");
+  const grid = document.getElementById("skill-results");
+  const statusEl = document.getElementById("skill-status");
+  const queryEl = document.getElementById("skill-query");
+  function setStatus(cls, text){ statusEl.className = "status " + cls; statusEl.textContent = text; }
+
+  async function run(){
+    const zh = input.value.trim();
+    if(!zh){
+      setStatus("empty", "⚠️ 先输入需求");
+      grid.innerHTML = '<div class="skill-hint">先把你的需求写进去，比如「自动整理会议纪要」～</div>';
+      return;
+    }
+    btn.disabled = true; btn.setAttribute("aria-busy","true");
+    setStatus("loading", "翻译中…");
+    queryEl.textContent = "";
+    grid.innerHTML = '<div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div>';
+
+    let en = null;
+    try{ en = await translateZh2En(zh); }catch(e){}
+    const searchTerm = en && en.trim() ? en.trim() : zh;   // 翻译失败则用原文兜底
+    queryEl.textContent = "🔍 " + searchTerm;
+    setStatus("loading", en ? "搜索中…" : "翻译不可用，直接用原文搜…");
+
+    try{
+      const repos = await searchSkillRepos(searchTerm);
+      if(repos.length === 0){
+        grid.innerHTML = '<div class="skill-hint">没找到匹配的仓库，换个说法试试？例如「meeting notes summarizer skill」。</div>';
+        setStatus("empty", "无结果");
+      }else{
+        grid.innerHTML = repos.map(renderSkillCard).join("");
+        setStatus("success", "✅ 找到 " + repos.length + " 个");
+      }
+    }catch(e){
+      grid.innerHTML = '<div class="skill-hint">搜索失败：' + escapeHtml(e && e.message ? e.message : e) + '。可能是网络受限或触发 GitHub 限流，稍后重试。</div>';
+      setStatus("fallback", "⚠️ 搜索失败");
+    }finally{
+      btn.disabled = false; btn.removeAttribute("aria-busy");
+    }
+  }
+
+  btn.addEventListener("click", run);
+  input.addEventListener("keydown", e=>{ if(e.key === "Enter") run(); });
+}
+
 /* ---------- 启动 ---------- */
 initHeader();
 bindOptimizer();
+bindSkillSearch();
 renderCnNews();
 renderGH();
 renderCaps();
