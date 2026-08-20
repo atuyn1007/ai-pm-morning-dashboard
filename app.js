@@ -2,61 +2,61 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"OpenAI暂停Astra部分训练，同步推出ChatGPT青少年版",
-    url:"https://www.163.com/dy/article/L4M94EG00512B07B.html",
-    source:"每日经济新闻",
-    time:"2026-08-19T07:50:00+08:00",
-    desc:"Astra测试中触及网络安全关键阈值，OpenAI暂停部分训练，并上线13-17岁专属版本。"
+    title:"智谱发布 GLM-5.3：编程能力较上代提升 50%，权重将开源",
+    url:"https://www.zhipuai.cn/zh/research/162",
+    source:"智谱官方",
+    time:"2026-08-20T08:00:00+08:00",
+    desc:"智谱发布 GLM-5.3，编程能力较上代提升 50%，AA 综合智能指数 60 分，权重将开源。"
   },
   {
-    title:"苹果联手阿里为中国市场自训专属大模型，成首家获批外企",
-    url:"https://new.qq.com/rain/a/20260819A02Q3T00",
-    source:"至顶科技",
-    time:"2026-08-19T07:50:00+08:00",
-    desc:"苹果在阿里技术支持下训练中国市场专属模型，与通义千问方案并行，已完成监管备案。"
+    title:"2026 世界机器人大会北京开幕，300 余家企业携 3000 余件展品",
+    url:"https://news.qq.com/rain/a/20260820A02Y7O00",
+    source:"腾讯新闻",
+    time:"2026-08-20T08:00:00+08:00",
+    desc:"2026 世界机器人大会在北京亦庄开幕，300 余家企业携 3000 余件展品同台竞技。"
   },
   {
-    title:"百度Q2财报：AI业务收入125亿元，占比连续两季过半",
-    url:"https://www.163.com/dy/article/L4MACBCM0534A4SC.html",
-    source:"界面新闻",
-    time:"2026-08-19T07:50:00+08:00",
-    desc:"百度Q2总营收313亿元，AI业务收入125亿元占比50%，GPU云收入同比增长283%。"
+    title:"Snowflake 为 Cortex AI Gateway 加入动态模型路由",
+    url:"https://www.snowflake.com/en/blog/dynamic-model-routing-open-models-cortex-ai/",
+    source:"Snowflake 官方",
+    time:"2026-08-20T08:00:00+08:00",
+    desc:"Snowflake 为 Cortex AI Gateway 加入动态模型路由，按任务选模型，token 效率最高提升 3 倍。"
   },
   {
-    title:"企业微信5.0.10升级CLI与MCP，打通WorkBuddy等主流Agent",
-    url:"https://www.163.com/dy/article/L4MACBCM0534A4SC.html",
-    source:"微信公开课",
-    time:"2026-08-19T07:50:00+08:00",
-    desc:"企微开放CLI与MCP能力，WorkBuddy、企业自建Agent可直接调用企微核心办公能力。"
+    title:"CyboPal 完成数亿元融资，押注消费级具身智能交互底座",
+    url:"https://so.html5.qq.com/page/real/search_news?docid=70000021_4776a86573d22052",
+    source:"腾讯新闻",
+    time:"2026-08-20T08:00:00+08:00",
+    desc:"具身交互模型企业 CyboPal 完成数亿元融资，押注桌面机器人终端与 Agent 交互底座。"
   },
   {
-    title:"“AI老板”克劳德首次解雇人类员工，系大模型管理者首例",
-    url:"https://view.inews.qq.com/a/20260819A0031E00",
-    source:"九派财经",
-    time:"2026-08-19T07:50:00+08:00",
-    desc:"运营旧金山零售店的Claude解雇一名频繁迟到员工，但日志显示最终仍需人工介入确认。"
+    title:"小马智行与 Uber 扩大合作，欧洲 5 城部署超 2000 辆 Robotaxi",
+    url:"https://blog.pony.ai/pony-ai-and-uber-expand-partnership-to-deploy-over-2-000-robotaxis-in-europe/",
+    source:"小马智行官方",
+    time:"2026-08-20T08:00:00+08:00",
+    desc:"小马智行与 Uber 扩大合作，将在欧洲 5 城部署超 2000 辆 Robotaxi，萨格勒布已接入。"
   },
   {
-    title:"纳指跌1.33%，AI算力链集体回撤，存储与光通信领跌",
-    url:"https://new.qq.com/rain/a/20260819A02E6D00",
-    source:"财联社",
-    time:"2026-08-19T07:50:00+08:00",
-    desc:"存储、光通信、AI云服务板块集体下挫，闪迪、SK海力士跌超9%，算力链估值回撤。"
+    title:"Marvell 与 Google 达成定制 AI 芯片合作，打破 Broadcom 独家格局",
+    url:"https://www.cnbc.com/2026/08/19/marvell-google-ai-chips.html",
+    source:"CNBC",
+    time:"2026-08-20T08:00:00+08:00",
+    desc:"Marvell 与 Google 达成定制 AI 芯片合作，打破 Broadcom 十余年独家供应格局。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:152847, desc:"可视化 AI 工作流与 RAG 平台，协作空间内完成 Agent 编排到生产部署。", updated:"2026-08-19T01:55:41Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:84423, desc:"AI 驱动的软件开发代理，能像人类开发者一样编写、运行与调试代码。", updated:"2026-08-18T21:59:30Z"},
-  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74205, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA、全参数微调等方案。", updated:"2026-08-18T11:49:47Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:39349, desc:"多平台 AI 机器人 / Agent 框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-08-17T18:32:10Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29387, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流编排。", updated:"2026-08-18T14:45:16Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:24350, desc:"Prompt / Agent / RAG 测试与红队评估工具，支持 CI/CD。", updated:"2026-08-18T22:33:59Z"},
-  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19748, desc:"开源 Agentic 数据助手，面向下一代 AI + Data 产品，支持数据库对话分析。", updated:"2026-08-17T12:25:25Z"},
-  {name:"datawhalechina/easy-vibe", url:"https://github.com/datawhalechina/easy-vibe", stars:18993, desc:"给 AI 原生产品人的第一节课，适合产品经理系统入门 AI 应用构建。", updated:"2026-08-18T02:14:42Z"},
-  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18220, desc:"企业私有 AI 搜索与 Agent 平台，内置 Agent Builder、深度研究与文档分析。", updated:"2026-08-18T15:10:30Z"},
-  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14872, desc:"开源 GPT/LLM Agent 构建与部署平台，可视化搭建对话机器人一键上线。", updated:"2026-08-18T20:42:30Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:152933, desc:"可视化 AI 工作流与 RAG 平台，协作空间内完成 Agent 编排到生产部署。", updated:"2026-08-20T01:56:56Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:84515, desc:"AI 驱动的软件开发代理，能像人类开发者一样编写、运行与调试代码。", updated:"2026-08-20T01:59:59Z"},
+  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74236, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA、全参数微调等方案。", updated:"2026-08-18T11:49:47Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:39397, desc:"多平台 AI 机器人 / Agent 框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-08-19T17:06:17Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29390, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流编排。", updated:"2026-08-19T11:27:03Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:24386, desc:"Prompt / Agent / RAG 测试与红队评估工具，支持 CI/CD。", updated:"2026-08-20T01:51:05Z"},
+  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19760, desc:"开源 Agentic 数据助手，面向下一代 AI + Data 产品，支持数据库对话分析。", updated:"2026-08-19T11:34:53Z"},
+  {name:"datawhalechina/easy-vibe", url:"https://github.com/datawhalechina/easy-vibe", stars:19005, desc:"给 AI 原生产品人的第一节课，适合产品经理系统入门 AI 应用构建。", updated:"2026-08-18T02:14:42Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18221, desc:"企业私有 AI 搜索与 Agent 平台，内置 Agent Builder、深度研究与文档分析。", updated:"2026-08-19T23:29:41Z"},
+  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14872, desc:"开源 GPT/LLM Agent 构建与部署平台，可视化搭建对话机器人一键上线。", updated:"2026-08-19T21:00:55Z"}
 ];
 
 /* ---------- 产品经理能力（精选静态内容） ---------- */
