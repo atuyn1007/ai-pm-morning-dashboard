@@ -59,16 +59,6 @@ const GH_WEEKLY = [
   {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14873, desc:"开源 GPT/LLM Agent 构建与部署平台，可视化搭建对话机器人一键上线。", updated:"2026-08-20T21:09:03Z"}
 ];
 
-/* ---------- 产品经理能力（精选静态内容） ---------- */
-const CAPS = [
-  {em:"🧠", name:"AI 原生产品思维", why:"不是“给旧功能加 AI”，而是用 AI 重构工作流与价值链路。", act:"今天试着把团队一个重复流程，写成一段可被 Agent 执行的提示词。"},
-  {em:"🔍", name:"需求洞察与甄别", why:"AI 时代噪音更多，区分“真需求”和“伪痛点”是 PM 的核心壁垒。", act:"对一条新需求做 5 Why 追问，确认它背后真实的使用场景。"},
-  {em:"📊", name:"数据驱动决策", why:"热度不等于价值，用北极星指标和 A/B 实验说话。", act:"挑一个关键指标，写清它的定义、口径与上扬的归因。"},
-  {em:"💡", name:"提示词工程", why:"会写提示词 = 会指挥一支随叫随到的“实习生军团”。", act:"用“角色+任务+约束+示例”四段式重写你最常用的一个 prompt。"},
-  {em:"🤝", name:"跨团队协同", why:"AI 项目常横跨算法、工程、设计、合规，PM 是粘合剂。", act:"把本周一个卡点，用一页 memo 同步给相关方并约对齐。"},
-  {em:"💰", name:"商业化与增长", why:"能落地的 AI 价值，最终要回到单位经济与留存。", act:"算一笔账：这个功能带来的价值，是否大于其推理/算力成本？"}
-];
-
 /* ---------- 海外 AI 动态：备用数据（已预翻成中文） ---------- */
 const FALLBACK_NEWS = [
   {title:"Label your AI writing as AI writing", cn:"请为你的 AI 写作标注「由 AI 生成」", url:"https://www.raymondyxu.com/blog/labelYourAIWritingAsAIWriting", source:"Hacker News", tag:"hn", time:"2026-08-06T00:56:44Z", fallback:true},
@@ -309,30 +299,6 @@ function renderGH(){
     </div>`).join("");
 }
 
-function renderCaps(){
-  document.getElementById("caps").innerHTML = CAPS.map((c,i)=>`
-    <div class="cap">
-      <span class="cap-tape tape butter"></span>
-      <div class="cap-top">
-        <span class="cap-no">${String(i+1).padStart(2,'0')}</span>
-        <span class="em">${c.em}</span>
-        <span class="name">${c.name}</span>
-      </div>
-      <div class="cap-block">
-        <span class="cap-tag">为什么重要</span>
-        <p class="why">${c.why}</p>
-      </div>
-      <div class="cap-block cap-act">
-        <span class="chk-box" aria-hidden="true"></span>
-        <div class="act-body">
-          <span class="cap-tag">今日行动</span>
-          <p class="act">${c.act}</p>
-        </div>
-      </div>
-      <div class="cap-foot"><span class="cap-status">待打卡</span></div>
-    </div>`).join("");
-}
-
 function updateStats(){
   document.getElementById("s-cn-news").innerHTML = TODAY_NEWS.length + '<small> 条</small>';
   document.getElementById("s-gh").innerHTML = GH_WEEKLY.length + '<small> 个</small>';
@@ -344,7 +310,7 @@ function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','
 
 /* ---------- 时钟 / 问候 / 提示 ---------- */
 const TIPS = [
-  "坐下来，花 3 分钟扫一眼今日 AI 圈在发生什么，再挑一条能力练练手。",
+  "坐下来，花 3 分钟扫一眼今日 AI 圈在发生什么，再勾掉一条今日待办。",
   "今天试着用 AI 把一个繁琐流程自动化 10%，积少成多。",
   "看到有意思的动态？顺手记一句“对我们有什么启发”，比收藏更有用。",
   "别被热度带节奏——先问一句：这事和用户真实痛点有关系吗？",
@@ -353,6 +319,87 @@ const TIPS = [
 function tick(){
   const now = new Date();
   document.getElementById("clock").textContent = now.toLocaleTimeString("zh-CN");
+}
+
+function bindTodos(){
+  const KEY = 'pm_todos';
+  const listEl = document.getElementById("todos-list");
+  const inputEl = document.getElementById("todos-input");
+  const addBtn = document.getElementById("todos-add-btn");
+  const clearBtn = document.getElementById("todos-clear");
+  const countEl = document.getElementById("todos-count");
+  const defaults = ["浏览今日中文 AI 动态","浏览本周 GitHub 高赞 skill","完成今天最重要的一项工作"];
+
+  function load(){
+    try{
+      const raw = localStorage.getItem(KEY);
+      if(raw) return JSON.parse(raw);
+    }catch(e){}
+    return defaults.map(t=>({text:t,done:false}));
+  }
+  function save(items){ localStorage.setItem(KEY, JSON.stringify(items)); render(items); }
+
+  function render(items){
+    if(!items.length){
+      listEl.innerHTML = '<div class="todos-empty">暂无待办，下面添加一条 👇</div>';
+      countEl.textContent = '0 项';
+      clearBtn.style.display = 'none';
+      return;
+    }
+    listEl.innerHTML = items.map((item,i)=>`
+      <div class="todo ${item.done?'done':''}" data-idx="${i}">
+        <span class="todo-check" role="checkbox" tabindex="0" aria-checked="${item.done?'true':'false'}" aria-label="标记完成">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        <span class="todo-text">${escapeHtml(item.text)}</span>
+        <button type="button" class="todo-del" aria-label="删除">×</button>
+      </div>`).join("");
+    const remaining = items.filter(x=>!x.done).length;
+    countEl.textContent = `${remaining} 项未完成 / 共 ${items.length} 项`;
+    clearBtn.style.display = items.some(x=>x.done) ? 'inline-flex' : 'none';
+  }
+
+  listEl.addEventListener('click', e=>{
+    const row = e.target.closest('.todo');
+    if(!row) return;
+    const idx = +row.dataset.idx;
+    const items = load();
+    if(e.target.closest('.todo-check')){
+      items[idx].done = !items[idx].done;
+      save(items);
+    }else if(e.target.closest('.todo-del')){
+      items.splice(idx,1);
+      save(items);
+    }
+  });
+  listEl.addEventListener('keydown', e=>{
+    const check = e.target.closest('.todo-check');
+    if(!check || (e.key !== 'Enter' && e.key !== ' ')) return;
+    e.preventDefault();
+    const row = check.closest('.todo');
+    const idx = +row.dataset.idx;
+    const items = load();
+    items[idx].done = !items[idx].done;
+    save(items);
+  });
+
+  function add(){
+    const text = inputEl.value.trim();
+    if(!text) return;
+    const items = load();
+    items.push({text,done:false});
+    inputEl.value = '';
+    save(items);
+  }
+  addBtn.addEventListener('click', add);
+  inputEl.addEventListener('keydown', e=>{ if(e.key === 'Enter') add(); });
+
+  clearBtn.addEventListener('click', ()=>{
+    const items = load().filter(x=>!x.done);
+    save(items);
+  });
+
+  render(load());
 }
 function initHeader(){
   const now = new Date();
@@ -672,9 +719,9 @@ function bindSkillSearch(){
 initHeader();
 bindOptimizer();
 bindSkillSearch();
+bindTodos();
 renderCnNews();
 renderGH();
-renderCaps();
 updateStats();
 tick(); setInterval(tick,1000);
 loadNews();

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light" />
-<meta name="description" content="AI 产品经理晨间仪表盘：每日中文行业动态、GitHub 高赞开源项目、海外 AI 动态（自动翻译）、产品经理能力打卡与提示词优化器。" />
+<meta name="description" content="AI 产品经理晨间仪表盘：每日中文行业动态、GitHub 高赞开源项目、海外 AI 动态（自动翻译）、今日待办与提示词优化器。" />
 <title>AI 产品经理晨间仪表盘</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23f7c9d4'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle'%3E%F0%9F%93%93%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="styles.css" />
@@ -22,7 +22,7 @@
       <div class="nav-links">
         <a href="#overview">今日概览</a>
         <a href="#tracking">动态追踪</a>
-        <a href="#caps">能力提升</a>
+        <a href="#todos">今日待办</a>
         <a href="#skill-search">搜 Skill</a>
         <a href="#toolbox">工具箱</a>
       </div>
@@ -109,9 +109,6 @@
     </div>
   </div>
 
-  <div class="section-head      </div>
-  </div>
-
   <div class="section-wrap skill-wrap" id="skill-search">
     <div class="section-head">
       <h2 class="section-label"><span class="bar accent-teal" aria-hidden="true"></span>GitHub Skill 搜索</h2>
@@ -133,13 +130,23 @@
     </div>
   </div>
 
-  <div class="section-head caps-head">
-    <h2 class="section-label torn-label"><span class="bar accent-pink" aria-hidden="true"></span>产品经理能力打卡</h2>
-    <div class="meta">每天挑 1 项刻意练习</div>
+  <div class="section-head todos-head" id="todos">
+    <h2 class="section-label torn-label"><span class="bar accent-pink" aria-hidden="true"></span>今日待办</h2>
+    <div class="meta">点选完成，按回车添加新事项</div>
   </div>
-  <div class="caps-wrap section-wrap">
-    <img class="sticker sec-sticker caps-sticker" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="88" height="88" loading="lazy" decoding="async">
-    <div class="caps" id="caps"></div>
+  <div class="todos-wrap section-wrap">
+    <img class="sticker sec-sticker todos-sticker" src="assets/stickers/sticker-r1-c1.webp" alt="" aria-hidden="true" width="88" height="88" loading="lazy" decoding="async">
+    <div class="todos paper-card">
+      <div class="todos-list" id="todos-list"></div>
+      <div class="todos-add">
+        <input type="text" id="todos-input" placeholder="+ 添加一条待办…" aria-label="添加待办" autocomplete="off">
+        <button type="button" class="btn primary" id="todos-add-btn">添加</button>
+      </div>
+      <div class="todos-foot">
+        <span id="todos-count">0 项</span>
+        <button type="button" class="btn ghost" id="todos-clear">清除已完成</button>
+      </div>
+    </div>
   </div>
 
   <div class="opt" id="toolbox">
