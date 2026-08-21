@@ -4,6 +4,8 @@
 
 线上地址：https://atuyn1007.github.io/ai-pm-morning-dashboard/
 
+![AI 产品经理晨间仪表盘预览](preview.png)
+
 ---
 
 ## ✨ 功能模块
