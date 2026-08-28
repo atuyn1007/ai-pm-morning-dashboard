@@ -2,61 +2,61 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"英伟达首测 Vera Rubin NVL72，DeepSeek 智能体编码吞吐提升 30 倍",
-    url:"https://www.sohu.com/a/1067538635_455313",
-    source:"搜狐·腾讯研究院AI速递",
-    time:"2026-08-26T08:00:00+08:00",
-    desc:"英伟达首测 Vera Rubin 机柜，DeepSeek 智能体编码吞吐较 GB300 提升 30 倍。"
+    title:"Google 推出 Gemini Omni 1.1 Flash 视频生成模型，最高支持 4K",
+    url:"https://www.ithome.com/0/995/352.htm",
+    source:"IT之家",
+    time:"2026-08-28T08:00:00+08:00",
+    desc:"谷歌发布 Gemini Omni 1.1 Flash，支持场景扩展、首尾帧插值与最高 4K 视频输出。"
   },
   {
-    title:"OpenAI 首款自研推理芯片 Jalapeño 实测：每瓦性能超英伟达 GB300",
-    url:"https://new.qq.com/rain/a/20260826A034MB00?refer=cp_1009",
-    source:"腾讯新闻·IT之家",
-    time:"2026-08-26T08:00:00+08:00",
-    desc:"OpenAI 首款自研推理芯片 Jalapeño 实测，每瓦性能达 GB300 的 1.5–1.9 倍。"
+    title:"智谱确认 Ox Alpha 真身并开源 GLM-5.3-Flash（牛来大模型）",
+    url:"https://www.sohu.com/a/1068359868_100246910",
+    source:"搜狐科技",
+    time:"2026-08-28T08:00:00+08:00",
+    desc:"智谱确认匿名模型 Ox Alpha 即 GLM-5.3-Flash，开源权重并由 10 万张国产芯片承载。"
   },
   {
-    title:"字节跳动发布「豆包工作」，与飞书深度打通构建企业级 Agent",
-    url:"https://www.stcn.com/article/detail/4115647.html",
-    source:"证券时报",
-    time:"2026-08-26T08:00:00+08:00",
-    desc:"字节发布办公 Agent 产品「豆包工作」，整合 TRAE、扣子与飞书，可自主拆解任务、跨软件执行复杂工作流。"
+    title:"IBM 开源 Granite 4.2 系列，内置原生智能体能力",
+    url:"https://www.zhiding.cn/models/2026/0826/3197480.shtml",
+    source:"至顶网",
+    time:"2026-08-28T08:00:00+08:00",
+    desc:"IBM 开源 Granite 4.2（3B/8B/30B），内置思考与工具调用，采用 Apache 2.0 协议。"
   },
   {
-    title:"小鹏机器人首轮融资超 9 亿美元，估值 63 亿美元创具身智能纪录",
-    url:"https://finance.sina.cn/tech/2026-08-25/detail-inippmen9712579.d.html?vt=4",
-    source:"新浪财经·投资界",
-    time:"2026-08-26T08:00:00+08:00",
-    desc:"小鹏旗下 IRON 人形机器人完成超 9 亿美元首轮融资，腾讯阿里战略入局，刷新中国具身智能单轮纪录。"
+    title:"国产大模型调用量上半年暴涨，词元价格降至国际约 1/10",
+    url:"https://k.sina.com.cn/article_5953466437_162dab0450670baen4.html",
+    source:"新浪科技·财闻",
+    time:"2026-08-28T08:00:00+08:00",
+    desc:"央视财经：我国日均词元调用量破 500 万亿，部分模型价格降至国际约 1/10。"
   },
   {
-    title:"Hugging Face 据报洽谈以 130 亿美元估值被收购",
-    url:"https://new.qq.com/rain/a/20260825A0AHN600?refer=cp_1009",
-    source:"腾讯新闻",
-    time:"2026-08-26T08:00:00+08:00",
-    desc:"据报开源 AI 平台 Hugging Face 已接获 130 亿美元以上收购邀约，正委托银行评估。"
+    title:"OpenAI、谷歌等 116 家企业联名呼吁防御 AI 网络攻击",
+    url:"https://www.163.com/dy/article/L5DDK36M0511B8LM.html",
+    source:"IT之家",
+    time:"2026-08-28T08:00:00+08:00",
+    desc:"OpenAI、谷歌等 116 家企业联名，呼吁政府与行业在 AI 时代强化网络防御。"
   },
   {
-    title:"Kimi K3 开源引爆全球：2.8 万亿参数成首个 3 万亿级开源模型",
-    url:"https://www.pconline.com.cn/focus/2179/21792722.html?ad=9448",
-    source:"太平洋科技",
-    time:"2026-08-26T08:00:00+08:00",
-    desc:"月之暗面开源 2.8 万亿参数 Kimi K3，成全球首个 3 万亿级开源模型。"
+    title:"阿里开源 Qwen3.8-Flash-Next，提前预览 Qwen4 架构",
+    url:"https://news.aibase.com/zh/news/30664",
+    source:"AIBase",
+    time:"2026-08-28T08:00:00+08:00",
+    desc:"阿里开源 Qwen3.8-Flash-Next 多模态 MoE，仅激活 6B，训练成本约上代 1/9。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:153506, desc:"可视化 Agent 工作流与 RAG 平台，一站式完成从原型到生产部署。", updated:"2026-08-26T01:16:38Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:85100, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-08-25T22:22:08Z"},
-  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74354, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA 等方案。", updated:"2026-08-25T08:53:02Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:39602, desc:"多平台 AI 机器人 / Agent 框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-08-25T16:53:56Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29453, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-08-25T14:13:36Z"},
-  {name:"assafelovic/gpt-researcher", url:"https://github.com/assafelovic/gpt-researcher", stars:29152, desc:"自主研究智能体，基于任意 LLM 对任意数据开展深度研究。", updated:"2026-08-24T06:58:46Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:24570, desc:"Prompt / Agent / RAG 测试与红队评估工具，支持 CI/CD。", updated:"2026-08-26T00:09:38Z"},
-  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19792, desc:"开源 Agentic 数据助手，面向下一代 AI + Data 产品，支持库表对话。", updated:"2026-08-21T01:55:03Z"},
-  {name:"liyupi/ai-guide", url:"https://github.com/liyupi/ai-guide", stars:19156, desc:"鱼皮 AI 资源大全与 Vibe Coding 教程，覆盖大模型玩法。", updated:"2026-08-21T07:07:15Z"},
-  {name:"datawhalechina/easy-vibe", url:"https://github.com/datawhalechina/easy-vibe", stars:19108, desc:"vibe coding 101：面向 AI 原生产品人的第一节构建课。", updated:"2026-08-25T01:50:10Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:153691, desc:"可视化 Agent 工作流与 RAG 平台，一站式完成从原型到生产部署。", updated:"2026-08-27T23:44:41Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:85315, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-08-27T20:56:39Z"},
+  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74402, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA 等方案。", updated:"2026-08-27T10:50:57Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:39700, desc:"多平台 AI 机器人 / Agent 框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-08-27T11:04:57Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29490, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-08-27T19:17:20Z"},
+  {name:"assafelovic/gpt-researcher", url:"https://github.com/assafelovic/gpt-researcher", stars:29175, desc:"自主研究智能体，基于任意 LLM 对任意数据开展深度研究。", updated:"2026-08-27T19:34:56Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:24623, desc:"Prompt / Agent / RAG 测试与红队评估工具，支持 CI/CD。", updated:"2026-08-28T00:47:52Z"},
+  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19811, desc:"开源 Agentic 数据助手，面向下一代 AI + Data 产品，支持库表对话。", updated:"2026-08-26T11:10:31Z"},
+  {name:"datawhalechina/easy-vibe", url:"https://github.com/datawhalechina/easy-vibe", stars:19142, desc:"vibe coding 101：面向 AI 原生产品人的第一节构建课。", updated:"2026-08-25T01:50:10Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18231, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，支持多模型。", updated:"2026-08-27T22:41:19Z"}
 ];
 
 /* ---------- 海外 AI 动态：备用数据（已预翻成中文） ---------- */
