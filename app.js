@@ -2,61 +2,61 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"OpenAI 发布 GPT-6 Astra，奥特曼喊出“欢迎来到 AGI 时代”",
-    url:"https://news.qq.com/rain/a/20260904A02YVW00",
+    title:"OpenAI 首席科学家 Pachocki 公开呼吁行业在安全标准建立前自愿减速",
+    url:"http://view.inews.qq.com/a/20260908A025CJ00",
+    source:"华尔街见闻",
+    time:"2026-09-08T08:00:00+08:00",
+    desc:"9/7 发文警告 AI 距无需人类干预的自我改进已不远，呼吁实验室在统一安全标准前自愿减速。"
+  },
+  {
+    title:"天猫上线「AI 空间站」集中售卖阿里云、智谱、Kimi 等国产大模型订阅",
+    url:"http://view.inews.qq.com/a/20260907A0DOON00",
+    source:"三易生活",
+    time:"2026-09-08T08:00:00+08:00",
+    desc:"9/7 上线 Token 充值中心，首批接入五家厂商，大模型订阅从官网走向电商货架。"
+  },
+  {
+    title:"中国大模型周调用量连续十九周超美国，腾讯混元 Hy4 登顶",
+    url:"http://view.inews.qq.com/a/20260907A0D33Y00",
+    source:"财联社",
+    time:"2026-09-08T08:00:00+08:00",
+    desc:"OpenRouter 上周数据：中国周调用 56.72 万亿 Token 环比+2.83%，全球前五占四席。"
+  },
+  {
+    title:"Anthropic 整改 Claude 安全机制，防智能体突破沙箱失控",
+    url:"https://new.qq.com/rain/a/20260908A03NZE00",
     source:"腾讯新闻",
-    time:"2026-09-04T08:00:00+08:00",
-    desc:"9/3 发布，10 万+ GPU 训练，具备 Computer Use，OSWorld 2.0 成功率 72.6%，API 定价约为上代 2.5 倍。"
+    time:"2026-09-08T08:00:00+08:00",
+    desc:"继三起安全事件后，转用隔离环境、持续监控与人工干预，标记越界访问行为。"
   },
   {
-    title:"英伟达 129.3 亿美元收购 Hugging Face，承诺维持开放平台",
-    url:"https://new.qq.com/rain/a/20260904A02EJP00",
-    source:"看看新闻Knews",
-    time:"2026-09-04T08:00:00+08:00",
-    desc:"9/3 官宣，黄仁勋称开放模型增强安全、加速创新；HF 含 1800 万开发者、300 万模型，开源生态再洗牌。"
+    title:"阿里千问开放平台上线首批金融类智能体，覆盖证券基金期货保险",
+    url:"https://www.cls.cn/detail/2475665",
+    source:"财联社",
+    time:"2026-09-08T08:00:00+08:00",
+    desc:"9/7 上线，兴业证券、易方达等机构入驻，平台做入口、合规与专业留在机构侧。"
   },
   {
-    title:"网信办点名豆包、元宝、千问、文心一言等头部 AI 应用整改",
-    url:"https://new.qq.com/rain/a/20260904A03AJL00",
-    source:"腾讯新闻",
-    time:"2026-09-04T08:00:00+08:00",
-    desc:"清朗行动第二阶段，督促强化违规内容限制与 AI 生成标识；累计清理信息 561 万条、处置账号 4.9 万。"
-  },
-  {
-    title:"Meta 发布 Muse Spark 1.3，称编程与智能体能力逼近头部竞品",
-    url:"https://new.qq.com/rain/a/20260904A035T500",
-    source:"腾讯新闻",
-    time:"2026-09-04T08:00:00+08:00",
-    desc:"9/3 发布，任务所需 token 减少 25%，编码优于 GPT-5.6 Sol，将接入 Instagram、Facebook 与 Meta AI。"
-  },
-  {
-    title:"ChatGPT、Claude、Grok 遭遇历史级集体宕机，持续约 3 小时 40 分",
-    url:"https://view.inews.qq.com/a/20260904A034V900",
-    source:"21世纪经济报道",
-    time:"2026-09-04T08:00:00+08:00",
-    desc:"9/3 北美多款头部 AI 同时故障，Downdetector 显示 OpenAI 报告超 1.2 万份，疑与微软 Azure 有关。"
-  },
-  {
-    title:"小鹏第二代 VLA 大模型升级，物理 AI 实现 4D 时空突破",
-    url:"https://new.qq.com/rain/a/20260904A029SQ00",
-    source:"腾讯新闻",
-    time:"2026-09-04T08:00:00+08:00",
-    desc:"端侧参数扩大 3.5 倍，从 3D 空间升级为 4D 时空动态理解，可推演未来 6 秒，技术同步迁移至机器人 IRON。"
+    title:"字节 SeedRealtime 全双工音视频模型落地豆包 App",
+    url:"https://www.toutiao.com/article/7682955344217227815/",
+    source:"今日头条",
+    time:"2026-09-08T08:00:00+08:00",
+    desc:"原生全双工实时大模型，支持边看视频边语音对话，豆包已全量上线、延迟大幅优化。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:154371, desc:"可视化 Agent 工作流与 RAG 平台，一站式完成从原型到生产部署。", updated:"2026-09-04T00:56:37Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:86102, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-09-03T23:52:48Z"},
-  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74557, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA 等方案。", updated:"2026-09-02T07:52:23Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:39984, desc:"多平台 AI 机器人 / Agent 框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-09-03T16:49:28Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29557, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-09-03T14:36:35Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:24792, desc:"Prompt / Agent / RAG 测试与红队评估工具，支持 CI/CD。", updated:"2026-09-03T23:47:15Z"},
-  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19861, desc:"开源 Agentic 数据助手，面向下一代 AI + Data 产品，支持库表对话。", updated:"2026-08-31T03:49:48Z"},
-  {name:"liyupi/ai-guide", url:"https://github.com/liyupi/ai-guide", stars:19498, desc:"AI 资源大全与 Vibe Coding 零基础教程，覆盖大模型玩法、Prompt 与开发框架。", updated:"2026-09-02T08:32:57Z"},
-  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18236, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，支持多模型。", updated:"2026-09-03T12:33:02Z"},
-  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14891, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-09-03T01:16:54Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:154872, desc:"可视化 Agent 工作流与 RAG 平台，一站式从原型到生产部署。", updated:"2026-09-08T01:55:24Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:86692, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-09-07T23:20:30Z"},
+  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74630, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA 等方案。", updated:"2026-09-04T08:15:24Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:40180, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-09-08T01:55:37Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29595, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-09-07T12:09:57Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:24911, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-09-08T01:57:42Z"},
+  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19899, desc:"开源 Agentic 数据助手，面向下一代 AI+Data 产品，支持库表对话。", updated:"2026-09-07T05:35:45Z"},
+  {name:"liyupi/ai-guide", url:"https://github.com/liyupi/ai-guide", stars:19648, desc:"AI 资源大全与 Vibe Coding 零基础教程，覆盖大模型玩法与 Prompt。", updated:"2026-09-02T08:32:57Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18245, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-09-07T16:53:04Z"},
+  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14896, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-09-04T22:33:01Z"}
 ];
 
 /* ---------- 海外 AI 动态：备用数据（已预翻成中文） ---------- */
