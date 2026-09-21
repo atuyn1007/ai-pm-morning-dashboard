@@ -2,61 +2,61 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"OpenAI 发布模型失调披露框架，公开 6 份异常行为案例",
-    url:"https://apnews.com/article/openai-safety-ai-framework-089e75b95bc935af092da7b79d92706d",
-    source:"AP News",
-    time:"2026-09-18T08:00:00+08:00",
-    desc:"将安全披露从个案回应升级为持续追踪机制，并公开半年来 6 份模型异常案例。"
+    title:"阶跃星辰发布 Step 5 Preview：600B 稀疏 MoE，10 月 15 日开源权重",
+    url:"http://t.cn/AXOTRpii",
+    source:"AIGC日报",
+    time:"2026-09-21T08:00:00+08:00",
+    desc:"总参 6000 亿、激活 270 亿，支持 1M 上下文与视觉输入，面向长任务 Agent。"
   },
   {
-    title:"Anthropic 首发研发自动化指数：Claude 主导 26% 内部 AI 研发",
-    url:"https://www.engadget.com/2261909/anthropic-says-claude-leads-26-percent-of-its-ai-research-and-development/",
-    source:"Engadget",
-    time:"2026-09-18T08:00:00+08:00",
-    desc:"采用 AL0-AL5 分级，Claude 主导约 26% 研发，8 个月从近 0 起步，参与约 90%。"
+    title:"阿里千问开源 Qwen-Image-2.1：7B 模型统一文生图与编辑",
+    url:"http://t.cn/AXO8q2bg",
+    source:"AIGC日报",
+    time:"2026-09-21T08:00:00+08:00",
+    desc:"原生支持 RGBA 透明图与最多 10 张参考图，首日适配 ComfyUI 与 Diffusers。"
   },
   {
-    title:"字节发布豆包座舱助手，首款豆包汽车 9 月 21 日预售",
-    url:"https://www.jfdaily.com/news/detail?id=1178557",
-    source:"上观新闻",
-    time:"2026-09-18T08:00:00+08:00",
-    desc:"AI 原生车载助手联合火山引擎发布，可远程控车；上汽荣威家越 07 下周预售。"
+    title:"硅基流动完成 B+ 二期及 C 轮融资，年内累计近 29 亿元",
+    url:"http://t.cn/AXORzixd",
+    source:"AIGC日报",
+    time:"2026-09-21T08:00:00+08:00",
+    desc:"投资方含中国互联网投资基金、国新基金等，资金投向推理引擎与异构算力调度。"
   },
   {
-    title:"月之暗面发布 Kimi 金融行业方案，数十家头部机构落地",
-    url:"https://www.cls.cn/detail/2486091",
-    source:"财联社",
-    time:"2026-09-18T08:00:00+08:00",
-    desc:"接入十余权威数据源与 9 项金融技能，工行、中信建投、中金等数十家机构已用。"
+    title:"腾讯混元发布全双工语音模型 Gander：打断率仅 8%",
+    url:"https://tpsreport.news/news/tencent-gander-voice-ai-background-tasks",
+    source:"The Decoder",
+    time:"2026-09-21T08:00:00+08:00",
+    desc:"小脑管对话、可换大脑管推理，100 个场景均在正确时机开口，计划开源权重。"
   },
   {
-    title:"智谱披露国内首个 RSI 工程化实践：Infra Agent 优化十万卡推理",
-    url:"https://m.thepaper.cn/newsDetail_forward_34090893",
-    source:"澎湃新闻",
-    time:"2026-09-18T08:00:00+08:00",
-    desc:"GLM-5.3 驱动的 Infra Agent 在国产芯片集群自主优化，吞吐约 3 倍、成本降 80%。"
+    title:"华为全联接大会发布昇腾 960DT 与灵衢互联架构",
+    url:"https://news.qq.com/rain/a/20260917A09TXL00",
+    source:"智东西/腾讯新闻",
+    time:"2026-09-21T08:00:00+08:00",
+    desc:"960DT 提前三季就绪，10 万卡集群算力利用率从 20% 升至 35%，国产算力突围。"
   },
   {
-    title:"科大讯飞发布 Spark-Audio 音频模型，国产算力训练达 SOTA",
-    url:"https://www.toutiao.com/article/7686513426448908810/",
-    source:"新华社/讯飞官方",
-    time:"2026-09-18T08:00:00+08:00",
-    desc:"0.65B 编码器配 30B-A3B MoE，全国产算力训练，Fleurs 中文测试集取得 SOTA。"
+    title:"北京首发词元经济专项行动方案，打造世界级词元工厂",
+    url:"https://www.beijing.gov.cn/fuwu/lqfw/gggs/202609/t20260919_4870982.html",
+    source:"北京市人民政府",
+    time:"2026-09-21T08:00:00+08:00",
+    desc:"市级首个词元经济专项政策，设十项核心举措，十五五全产业链有望破万亿。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:156195, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-09-18T01:09:32Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:88335, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-09-18T00:09:56Z"},
-  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74841, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA 等方案。", updated:"2026-09-14T08:09:48Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:40633, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-09-17T15:55:18Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29683, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-09-17T15:00:11Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25240, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-09-18T01:07:54Z"},
-  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:19999, desc:"开源 Agentic 数据助手，面向下一代 AI+Data 产品，支持库表对话。", updated:"2026-09-16T06:51:17Z"},
-  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18272, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-09-17T21:17:59Z"},
-  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14921, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-09-18T00:59:29Z"},
-  {name:"e2b-dev/E2B", url:"https://github.com/e2b-dev/E2B", stars:13858, desc:"开源安全沙箱环境，为生产级 AI 智能体提供真实世界工具。", updated:"2026-09-17T13:05:44Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:156637, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-09-21T01:51:16Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:88653, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-09-20T11:40:44Z"},
+  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74937, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA 等方案。", updated:"2026-09-14T08:09:48Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:40743, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-09-20T03:46:12Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29702, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-09-20T11:23:41Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25315, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-09-20T23:03:33Z"},
+  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:20018, desc:"开源 Agentic 数据助手，面向下一代 AI+Data 产品，支持库表对话。", updated:"2026-09-16T06:51:17Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18275, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-09-20T10:20:54Z"},
+  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14919, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-09-20T23:39:55Z"},
+  {name:"e2b-dev/E2B", url:"https://github.com/e2b-dev/E2B", stars:13893, desc:"开源安全沙箱环境，为生产级 AI 智能体提供真实世界工具。", updated:"2026-09-19T19:05:44Z"}
 ];
 
 /* ---------- 海外 AI 动态：备用数据（已预翻成中文） ---------- */
