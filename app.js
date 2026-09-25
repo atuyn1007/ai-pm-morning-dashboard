@@ -2,61 +2,61 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"阶跃星辰发布 Step 5 Preview：600B 稀疏 MoE，10 月 15 日开源权重",
-    url:"http://t.cn/AXOTRpii",
+    title:"千问发布 Qwen-Audio-3.1：5 款语音模型升级，最高降价 95%",
+    url:"http://t.cn/AXW74ihv",
     source:"AIGC日报",
-    time:"2026-09-21T08:00:00+08:00",
-    desc:"总参 6000 亿、激活 270 亿，支持 1M 上下文与视觉输入，面向长任务 Agent。"
+    time:"2026-09-25T08:00:00+08:00",
+    desc:"一次推出 5 款语音模型，覆盖识别/合成/实时交互/理解/创作，TTS 最高降 95%。"
   },
   {
-    title:"阿里千问开源 Qwen-Image-2.1：7B 模型统一文生图与编辑",
-    url:"http://t.cn/AXO8q2bg",
-    source:"AIGC日报",
-    time:"2026-09-21T08:00:00+08:00",
-    desc:"原生支持 RGBA 透明图与最多 10 张参考图，首日适配 ComfyUI 与 Diffusers。"
+    title:"网易有道开源子曰 Live 实时语音模型 R2T2/T3PO 双登顶 HuggingFace",
+    url:"https://www.163.com/dy/article/L7EKFAF10514R9P4.html",
+    source:"网易/澎湃",
+    time:"2026-09-25T08:00:00+08:00",
+    desc:"真流式语音识别 R2T2 与流式翻译 T3PO 登顶各自 Trending 榜，已现社区适配。"
   },
   {
-    title:"硅基流动完成 B+ 二期及 C 轮融资，年内累计近 29 亿元",
-    url:"http://t.cn/AXORzixd",
-    source:"AIGC日报",
-    time:"2026-09-21T08:00:00+08:00",
-    desc:"投资方含中国互联网投资基金、国新基金等，资金投向推理引擎与异构算力调度。"
+    title:"Google 公布 Project Suncatcher：将 TPU 芯片送进太空建轨道数据中心",
+    url:"https://www.163.com/dy/article/L7LO71L80550A7YJ.html",
+    source:"ZAKER/网易",
+    time:"2026-09-25T08:00:00+08:00",
+    desc:"首颗原型卫星下周四搭乘 SpaceX 升空，搭载 4 颗 Trillium TPU，测试太空算力。"
   },
   {
-    title:"腾讯混元发布全双工语音模型 Gander：打断率仅 8%",
-    url:"https://tpsreport.news/news/tencent-gander-voice-ai-background-tasks",
-    source:"The Decoder",
-    time:"2026-09-21T08:00:00+08:00",
-    desc:"小脑管对话、可换大脑管推理，100 个场景均在正确时机开口，计划开源权重。"
+    title:"OpenAI 智能体入侵澳大利亚 Medicare 门户，澳总理斥“不可接受”",
+    url:"https://www.163.com/dy/article/L7JI08HI0514DF2I.html",
+    source:"网易/天维网",
+    time:"2026-09-25T08:00:00+08:00",
+    desc:"6 月实验性智能体绕开防护获取非公开文件，被称首例 AI 智能体入侵政府网站。"
   },
   {
-    title:"华为全联接大会发布昇腾 960DT 与灵衢互联架构",
-    url:"https://news.qq.com/rain/a/20260917A09TXL00",
-    source:"智东西/腾讯新闻",
-    time:"2026-09-21T08:00:00+08:00",
-    desc:"960DT 提前三季就绪，10 万卡集群算力利用率从 20% 升至 35%，国产算力突围。"
+    title:"谷歌、OpenAI、Anthropic 拟共建前沿 AI 安全标准机构 SAFA",
+    url:"https://www.163.com/dy/article/L7KCOF840550WHYR.html",
+    source:"财闻/网易",
+    time:"2026-09-25T08:00:00+08:00",
+    desc:"三方推进行业自律机构，目标年底或 2027 年初启动，支持部署前第三方安全测试。"
   },
   {
-    title:"北京首发词元经济专项行动方案，打造世界级词元工厂",
-    url:"https://www.beijing.gov.cn/fuwu/lqfw/gggs/202609/t20260919_4870982.html",
-    source:"北京市人民政府",
-    time:"2026-09-21T08:00:00+08:00",
-    desc:"市级首个词元经济专项政策，设十项核心举措，十五五全产业链有望破万亿。"
+    title:"AI 价格战聚焦“中间”：Anthropic Opus 首次降价、OpenAI 跟进",
+    url:"https://www.toutiao.com/article/7689259114250027562/",
+    source:"今日头条/钛媒体",
+    time:"2026-09-25T08:00:00+08:00",
+    desc:"Opus 系列首次下调定价，90 分钟后 OpenAI 跟进；企业需求落在“混乱的中间”。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:156637, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-09-21T01:51:16Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:88653, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-09-20T11:40:44Z"},
-  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:74937, desc:"100+ LLM/VLM 统一高效微调框架，支持 LoRA、QLoRA 等方案。", updated:"2026-09-14T08:09:48Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:40743, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-09-20T03:46:12Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29702, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-09-20T11:23:41Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25315, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-09-20T23:03:33Z"},
-  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:20018, desc:"开源 Agentic 数据助手，面向下一代 AI+Data 产品，支持库表对话。", updated:"2026-09-16T06:51:17Z"},
-  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18275, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-09-20T10:20:54Z"},
-  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14919, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-09-20T23:39:55Z"},
-  {name:"e2b-dev/E2B", url:"https://github.com/e2b-dev/E2B", stars:13893, desc:"开源安全沙箱环境，为生产级 AI 智能体提供真实世界工具。", updated:"2026-09-19T19:05:44Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:157133, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-09-25T04:20:42Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:89107, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-09-25T02:45:13Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:40980, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-09-25T04:20:38Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29742, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-09-24T09:17:36Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25429, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-09-25T02:32:10Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18284, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-09-24T18:05:35Z"},
+  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14923, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-09-23T19:30:54Z"},
+  {name:"e2b-dev/E2B", url:"https://github.com/e2b-dev/E2B", stars:13958, desc:"开源安全沙箱环境，为生产级 AI 智能体提供真实世界工具。", updated:"2026-09-22T13:36:25Z"},
+  {name:"dataelement/bisheng", url:"https://github.com/dataelement/bisheng", stars:12006, desc:"毕昇开源 LLM 应用开发平台，含工作流、RAG、Agent 与企业级管控。", updated:"2026-09-24T12:43:16Z"},
+  {name:"langwatch/langwatch", url:"https://github.com/langwatch/langwatch", stars:4872, desc:"LLM 评测与 AI 智能体测试平台，覆盖质量、安全与可观测性。", updated:"2026-09-25T02:09:27Z"}
 ];
 
 /* ---------- 海外 AI 动态：备用数据（已预翻成中文） ---------- */
