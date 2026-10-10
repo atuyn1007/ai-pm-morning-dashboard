@@ -2,61 +2,61 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"OpenAI 发布 GPT-6 与 Intelligent UI：回答可生成图表与迷你应用",
-    url:"https://ai225.com/ai-daily",
-    source:"AI日报/ai225",
-    time:"2026-10-08T08:00:00+08:00",
-    desc:"OpenAI 推出 GPT-6 与交互式 Intelligent UI，ChatGPT 可按问题生成图表、按钮与迷你应用，付费用 Sol、免费用 Luna。"
+    title:"OpenAI 全面上线 GPT-6 并引入 Intelligent UI：可按问题生成图表与交互界面",
+    url:"https://new.qq.com/rain/a/20261009A0BJ6R00",
+    source:"腾讯新闻",
+    time:"2026-10-10T08:00:00+08:00",
+    desc:"OpenAI 向全球用户全面上线 GPT-6，免费与付费用户均可使用，并引入 Intelligent UI，可按问题生成图表、按钮与交互界面，搜索提速 44%。"
   },
   {
-    title:"Anthropic 发布 Claude Haiku 5.5：运行成本较前代降约 75%",
-    url:"https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20261008075558b64b8bfa",
-    source:"腾讯财经",
-    time:"2026-10-08T08:00:00+08:00",
-    desc:"Anthropic 推出 Claude Haiku 5.5，运行成本较前代平均降约 75%，输入每百万 Token 仅 0.1 美元，可作高速子智能体。"
+    title:"谷歌云发布 Gemini Agent 通用工作智能体，对标 OpenAI",
+    url:"https://www.163.com/dy/article/L8OLVPRR0511BLFD.html",
+    source:"网易/cnBeta",
+    time:"2026-10-10T08:00:00+08:00",
+    desc:"谷歌云在 Gemini at Work 发布通用工作智能体 Gemini Agent，接受目标而非指令，跨 Gmail/Docs 等执行任务，标志 AI 从助手迈向数字员工。"
   },
   {
-    title:"DeepSeek 新一轮融资或逼近千亿元，宁德时代与腾讯领投",
+    title:"DeepSeek 新一轮融资逼近千亿元，估值约 5000 亿创国内纪录",
     url:"https://news.qq.com/rain/a/20261008A02GOI00",
     source:"腾讯新闻/每日经济新闻",
-    time:"2026-10-08T08:00:00+08:00",
-    desc:"DeepSeek 接近锁定至少 800 亿元、上限近千亿元融资，宁德时代与腾讯领投，创中国 AI 单笔融资纪录，为 2027 年 IPO 铺路。"
+    time:"2026-10-10T08:00:00+08:00",
+    desc:"DeepSeek 新一轮融资至少 800 亿元、上限近千亿，宁德时代与腾讯领投，创国内 AI 单轮融资纪录，为 2027 年 IPO 铺路。"
   },
   {
-    title:"法国 Mistral 发布万亿参数开源模型 Mistral Large 4",
-    url:"https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20261008080927952ad930",
-    source:"腾讯财经/券商中国",
-    time:"2026-10-08T08:00:00+08:00",
-    desc:"法国 Mistral 发布万亿参数开源模型 Mistral Large 4（ML4），4 千张 GPU 训出，拟三周安全评估后公开权重。"
+    title:"生数科技发布 Vidu Q4 Preview，视频生成进入「分」时代",
+    url:"https://www.163.com/tech/article/L8NO6HSJ00098IEO.html",
+    source:"网易智能",
+    time:"2026-10-10T08:00:00+08:00",
+    desc:"生数科技发布视频生成旗舰 Vidu Q4 Preview，支持 4K 与多参考图/音频，首发优惠 0.09 元/秒，大幅降低 AI 视频创作门槛。"
   },
   {
-    title:"微软发布 Surface Laptop Ultra，英伟达 RTX Spark 驱动本地 AI",
-    url:"https://ai225.com/ai-daily",
-    source:"AI日报/ai225",
-    time:"2026-10-08T08:00:00+08:00",
-    desc:"微软发布搭载英伟达 RTX Spark 的 Surface Laptop Ultra，可本地运行大模型与 AI 编码模型，约 1 petaflop 算力、起售 2599 美元。"
+    title:"头部 AI 厂商放缓前沿研发，行业重心转向应用与盈利",
+    url:"https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20261008140324a6bf5850",
+    source:"腾讯财经",
+    time:"2026-10-10T08:00:00+08:00",
+    desc:"中信证券研报指 Anthropic、OpenAI 等倡议放缓前沿能力提升，产业重心从大模型训练转向推理优化、场景落地与货币化探索。"
   },
   {
-    title:"OpenAI 公开 722 篇 AI 数学手稿，含准黎曼猜想进展",
-    url:"https://www.163.com/dy/article/L8LG5DSQ0511AQHO.html",
-    source:"网易/AI前线",
-    time:"2026-10-08T08:00:00+08:00",
-    desc:"OpenAI 公开 722 篇内部模型产出的数学手稿（372 成果族），含准黎曼猜想，六成附 Lean 形式化，模型未发布引学界热议。"
+    title:"Anthropic 发布 Claude Sonnet 5.5，Terminal-Bench 4.0 得分 70.6%",
+    url:"https://aibriefs.news/ai-news-today",
+    source:"AIBriefs",
+    time:"2026-10-10T08:00:00+08:00",
+    desc:"Anthropic 发布 Claude Sonnet 5.5，Terminal-Bench 4.0 得分 70.6%，比 Opus 5.5 高、输出快 30% 且更便宜，定价每百万 Token 2/10 美元。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:158043, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-10-08T01:51:36Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:90208, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-10-08T00:19:22Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:41525, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-10-07T16:14:35Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29786, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-10-07T16:33:38Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25796, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-10-07T20:00:43Z"},
-  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:20081, desc:"开源智能体数据助手，面向下一代 AI + Data 产品，支持多源数据与 Agent。", updated:"2026-10-04T13:43:25Z"},
-  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18314, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-10-08T00:28:27Z"},
-  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14945, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-10-07T19:07:30Z"},
-  {name:"e2b-dev/E2B", url:"https://github.com/e2b-dev/E2B", stars:14221, desc:"开源安全沙箱环境，为生产级 AI 智能体提供真实世界工具。", updated:"2026-10-07T16:15:30Z"},
-  {name:"kuafuai/DevOpsGPT", url:"https://github.com/kuafuai/DevOpsGPT", stars:5966, desc:"多智能体系统，结合 LLM 与 DevOps 工具，将自然语言需求转为可运行软件。", updated:"2026-10-04T15:51:39Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:158014, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-10-09T22:51:06Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:90411, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-10-09T21:46:00Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:41617, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-10-09T18:10:58Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29788, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-10-09T14:18:59Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25847, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-10-10T00:03:49Z"},
+  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:20108, desc:"开源智能体数据助手，面向下一代 AI + Data 产品，支持多源数据与 Agent。", updated:"2026-10-04T13:43:25Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18314, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-10-09T22:20:34Z"},
+  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14947, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-10-09T20:10:50Z"},
+  {name:"e2b-dev/E2B", url:"https://github.com/e2b-dev/E2B", stars:14257, desc:"开源安全沙箱环境，为生产级 AI 智能体提供真实世界工具。", updated:"2026-10-09T14:55:23Z"},
+  {name:"dataelement/bisheng", url:"https://github.com/dataelement/bisheng", stars:12028, desc:"开源 LLM 应用开发平台，含 GenAI 工作流、RAG、Agent 与模型管理。", updated:"2026-10-09T17:29:52Z"}
 ];
 
 /* ---------- 海外 AI 动态：备用数据（已预翻成中文） ---------- */
