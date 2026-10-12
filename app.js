@@ -2,61 +2,61 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"阶跃星辰 Step 5 Preview 登顶 OpenRouter，10 月 15 日开源",
-    url:"https://www.163.com/dy/article/L8T2VF7V0514R9P4_pdya11y.html",
-    source:"澎湃新闻/网易",
-    time:"2026-10-11T08:00:00+08:00",
-    desc:"阶跃星辰旗舰基座 Step 5 Preview 登顶 OpenRouter Trending 榜，采用 6000 亿参数稀疏 MoE、1M 上下文，10 月 15 日正式开源。"
+    title:"英伟达洽购开放权重大模型公司 Reflection AI，估值 250 亿美元",
+    url:"https://36kr.com/p/4021149486928008",
+    source:"36氪/金融时报",
+    time:"2026-10-12T08:00:00+08:00",
+    desc:"英伟达正洽购开放权重大模型公司 Reflection AI（估值 250 亿美元），拟以「人才收购」补齐自有前沿模型短板，深化芯片+模型垂直整合。"
   },
   {
-    title:"阿里通义开源 Qwen-Image-2.1-Turbo：50 步压到 8 步出图",
-    url:"https://www.163.com/dy/article/L8SLKUCK05561FZE.html",
-    source:"网易/阿里通义",
-    time:"2026-10-11T08:00:00+08:00",
-    desc:"阿里通义千问开源 Qwen-Image-2.1-Turbo，将图像生成采样从 50 步压到 8 步，画质几乎无损，支持 2K 与文字指令修图。"
+    title:"亚马逊约 70 亿美元洽购 AI 初创 Decart",
+    url:"https://new.qq.com/rain/a/20261012A02O1Q00",
+    source:"腾讯新闻/华尔街日报",
+    time:"2026-10-12T08:00:00+08:00",
+    desc:"亚马逊洽谈以约 70 亿美元收购 AI 初创 Decart，其软件可让模型跨芯片高效运行，降低训练与推理成本。"
   },
   {
-    title:"月之暗面完成 Pre-IPO 融资，估值 500 亿美元拟赴港上市",
-    url:"https://aiproducthub.cn/newsflash/moonshot-ai-50b-valuation-hongkong-ipo-2026-10-06",
-    source:"AI产品库/彭博",
-    time:"2026-10-11T08:00:00+08:00",
-    desc:"据彭博社，月之暗面完成上市前最后一轮私募融资，估值约 500 亿美元，拟 2027 年一季度在港交所 IPO，募资上限 50 亿美元。"
+    title:"华为联合华东师大「七曜」时序模型登顶国际双榜",
+    url:"https://tech.ifeng.com/c/8x8d9Ihev1L",
+    source:"凤凰网科技/IT之家",
+    time:"2026-10-12T08:00:00+08:00",
+    desc:"华为与华东师大联合研发的昇腾原生时序预训练模型「七曜」登顶 TIME-leaderboard 与 GIFT-Eval 双榜，跻身全球第一梯队。"
   },
   {
-    title:"Manus 完成超 5 亿美元 C 轮融资，投后估值约 40 亿美元",
-    url:"https://news.qq.com/rain/a/20261008A05PWJ00",
-    source:"腾讯新闻/猎云网",
-    time:"2026-10-11T08:00:00+08:00",
-    desc:"通用 AI 智能体 Manus 母公司蝴蝶效应完成超 5 亿美元融资，博裕、IDG 领投，腾讯、红杉、真格跟投，为独立运营后首笔大额融资。"
+    title:"月之暗面 Kimi K3.1 拟 10 月中旬发布，K4 冲 5-6 万亿参数",
+    url:"https://finance.sina.cn/tech/2026-10-11/detail-iniuwcye0494644.d.html?vt=4",
+    source:"新浪科技/快科技",
+    time:"2026-10-12T08:00:00+08:00",
+    desc:"月之暗面 Kimi K3.1 拟 10 月中旬发布，强化 Agent 长程任务能力；更大规模 Kimi K4 参数预计达 5-6 万亿。"
   },
   {
-    title:"腾讯 WorkBuddy 上线独立文件浏览器，右键用 AI 打开本地文件",
-    url:"https://news.qq.com/rain/a/20261008A08Z6S00",
-    source:"腾讯新闻/凤凰网科技",
-    time:"2026-10-11T08:00:00+08:00",
-    desc:"腾讯 WorkBuddy 上线独立文件浏览器，右键用 AI 打开本地文件，左侧看文档右侧对话，支持人机双写并直接存回原文件。"
+    title:"微软 CEO 纳德拉呼吁为先进 AI 设「紧急刹车」",
+    url:"https://www.zaobao.com/news/world/story20261011-9817427",
+    source:"联合早报/财联社",
+    time:"2026-10-12T08:00:00+08:00",
+    desc:"微软 CEO 纳德拉呼吁企业假定模型已被入侵，为先进 AI 设「紧急刹车」，授权人员可随时暂停或关闭失控智能体。"
   },
   {
-    title:"「豆包订酒店」下单量环比增 56%，AI 入口首成假日消费场景",
-    url:"https://www.sohu.com/a/1085046658_260616",
-    source:"搜狐/澎湃",
-    time:"2026-10-11T08:00:00+08:00",
-    desc:"抖音生活服务报告显示，「豆包订酒店」双节下单量环比增超 56%，AI 入口首次成为假日消费新场景，成都、北京、西安排名前三。"
+    title:"蚂蚁「灵光」2.0 内测，对标 Meta Muse 转向个人智能体",
+    url:"https://pandaily.com/ant-group-lingguang-2-0-limited-beta-personal-ai-agent-long-term-memory-skills-mcp",
+    source:"Pandaily/新浪科技",
+    time:"2026-10-12T08:00:00+08:00",
+    desc:"蚂蚁「灵光」2.0 小范围内测，从聊天助手转向有长期记忆、可主动推进任务的个人智能体，本月计划全面开放。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:158100, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-10-10T23:16:41Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:90520, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-10-11T00:05:14Z"},
-  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:75401, desc:"统一高效微调 100+ 大模型与多模态模型（ACL 2024）。", updated:"2026-10-10T07:29:23Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:41682, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-10-10T16:16:26Z"},
-  {name:"assafelovic/gpt-researcher", url:"https://github.com/assafelovic/gpt-researcher", stars:30008, desc:"自主智能体，基于任意 LLM 对任意数据开展深度研究。", updated:"2026-10-10T22:03:53Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29798, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-10-10T15:11:27Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25878, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-10-10T23:49:20Z"},
-  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18316, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-10-10T16:59:01Z"},
-  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14946, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-10-09T20:10:50Z"},
-  {name:"e2b-dev/E2B", url:"https://github.com/e2b-dev/E2B", stars:14271, desc:"开源安全沙箱环境，为生产级 AI 智能体提供真实世界工具。", updated:"2026-10-09T14:55:23Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:158168, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-10-11T22:23:04Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:90617, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-10-11T22:54:13Z"},
+  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:75415, desc:"统一高效微调 100+ 大模型与多模态模型（ACL 2024）。", updated:"2026-10-10T07:29:23Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:41724, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-10-11T16:40:52Z"},
+  {name:"assafelovic/gpt-researcher", url:"https://github.com/assafelovic/gpt-researcher", stars:30023, desc:"自主智能体，基于任意 LLM 对任意数据开展深度研究。", updated:"2026-10-10T22:03:53Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29794, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-10-11T13:55:15Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25902, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-10-11T22:01:21Z"},
+  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:20116, desc:"开源智能体数据助手，面向下一代 AI+Data 产品研发。", updated:"2026-10-11T08:19:47Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18318, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-10-11T21:21:59Z"},
+  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14946, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-10-09T20:10:50Z"}
 ];
 
 /* ---------- 海外 AI 动态：备用数据（已预翻成中文） ---------- */
