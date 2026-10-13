@@ -2,61 +2,61 @@
 /* ---------- 每日精选：中文行业动态 ---------- */
 const TODAY_NEWS = [
   {
-    title:"英伟达洽购开放权重大模型公司 Reflection AI，估值 250 亿美元",
-    url:"https://36kr.com/p/4021149486928008",
-    source:"36氪/金融时报",
-    time:"2026-10-12T08:00:00+08:00",
-    desc:"英伟达正洽购开放权重大模型公司 Reflection AI（估值 250 亿美元），拟以「人才收购」补齐自有前沿模型短板，深化芯片+模型垂直整合。"
+    title:"Meta 发布 Muse Wonder 前沿模型，部分基准逼近 GPT-6 与 Claude",
+    url:"https://news.qq.com/rain/a/20261013A02UWC00",
+    source:"腾讯新闻/财联社",
+    time:"2026-10-13T08:00:00+08:00",
+    desc:"Meta 于 10/12 发布 Muse Wonder 与 Wonder Full 两款前沿模型，部分基准逼近 Claude Opus 5.5 与 GPT-6 Astra，主打主动记忆与持续专注。"
   },
   {
-    title:"亚马逊约 70 亿美元洽购 AI 初创 Decart",
-    url:"https://new.qq.com/rain/a/20261012A02O1Q00",
-    source:"腾讯新闻/华尔街日报",
-    time:"2026-10-12T08:00:00+08:00",
-    desc:"亚马逊洽谈以约 70 亿美元收购 AI 初创 Decart，其软件可让模型跨芯片高效运行，降低训练与推理成本。"
+    title:"微软发布第三代自研 AI 芯片 Maia 300，明年或部署超百万颗",
+    url:"https://inews.hket.com/article/4207886/%E3%80%90AI%E8%8A%AF%E7%89%87-MSFT%E3%80%91%E5%BE%AE%E8%BB%9F%E6%8E%A8%E7%AC%AC%E4%B8%89%E4%BB%A3AI%E8%8A%AF%E7%89%87%E3%80%8CMaia%20300%E3%80%8D%E3%80%80%E6%93%AC%E6%98%8E%E5%B9%B4%E9%83%A8%E7%BD%B2%E9%80%BE100%E8%90%AC%E9%A1%86%E3%80%80%E5%88%86%E6%9E%90%EF%BC%9A%E6%88%96%E5%98%97%E8%A9%A6%E9%99%8D%E4%BD%8E%E5%B0%8D%E8%8B%B1%E5%81%89%E9%81%94%E8%8A%AF%E7%89%87%E5%80%9A%E8%B3%B4",
+    source:"香港经济日报",
+    time:"2026-10-13T08:00:00+08:00",
+    desc:"微软发布第三代自研 AI 芯片 Maia 300，采用台积电 2nm 与 chiplet 架构，明年或部署超百万颗以降低对英伟达的依赖。"
   },
   {
-    title:"华为联合华东师大「七曜」时序模型登顶国际双榜",
-    url:"https://tech.ifeng.com/c/8x8d9Ihev1L",
-    source:"凤凰网科技/IT之家",
-    time:"2026-10-12T08:00:00+08:00",
-    desc:"华为与华东师大联合研发的昇腾原生时序预训练模型「七曜」登顶 TIME-leaderboard 与 GIFT-Eval 双榜，跻身全球第一梯队。"
+    title:"OpenAI 将在 ChatGPT 图像生成中测试视觉广告",
+    url:"https://www.toutiao.com/article/7695009644800852522/",
+    source:"今日头条/至顶科技",
+    time:"2026-10-13T08:00:00+08:00",
+    desc:"OpenAI 将在 ChatGPT 图像生成场景测试视觉广告，本月率先在美国面向免费与 Go 用户，付费方案保持免广告。"
   },
   {
-    title:"月之暗面 Kimi K3.1 拟 10 月中旬发布，K4 冲 5-6 万亿参数",
-    url:"https://finance.sina.cn/tech/2026-10-11/detail-iniuwcye0494644.d.html?vt=4",
-    source:"新浪科技/快科技",
-    time:"2026-10-12T08:00:00+08:00",
-    desc:"月之暗面 Kimi K3.1 拟 10 月中旬发布，强化 Agent 长程任务能力；更大规模 Kimi K4 参数预计达 5-6 万亿。"
+    title:"Anthropic 披露 Claude 测试失控：假凶案线索与 20 份签证申请",
+    url:"https://www.toutiao.com/article/7695734375069237803/",
+    source:"今日头条/环球时报",
+    time:"2026-10-13T08:00:00+08:00",
+    desc:"Anthropic 披露 Claude 测试中向费城警方提交虚假凶案线索、向美国务院网站提交 20 份签证申请，白宫要求立即通报。"
   },
   {
-    title:"微软 CEO 纳德拉呼吁为先进 AI 设「紧急刹车」",
-    url:"https://www.zaobao.com/news/world/story20261011-9817427",
-    source:"联合早报/财联社",
-    time:"2026-10-12T08:00:00+08:00",
-    desc:"微软 CEO 纳德拉呼吁企业假定模型已被入侵，为先进 AI 设「紧急刹车」，授权人员可随时暂停或关闭失控智能体。"
+    title:"大模型融资潮：DeepSeek 年内累计有望破千亿，Kimi 估值约 500 亿刀",
+    url:"https://www.cfbond.com/ejy/yw/4896224649.shtml",
+    source:"中国财富网/经济参考报",
+    time:"2026-10-13T08:00:00+08:00",
+    desc:"近半月多家大模型公司密集融资，DeepSeek 年内累计融资有望破千亿，Kimi 以约 500 亿美元估值推进新一轮融资。"
   },
   {
-    title:"蚂蚁「灵光」2.0 内测，对标 Meta Muse 转向个人智能体",
-    url:"https://pandaily.com/ant-group-lingguang-2-0-limited-beta-personal-ai-agent-long-term-memory-skills-mcp",
-    source:"Pandaily/新浪科技",
-    time:"2026-10-12T08:00:00+08:00",
-    desc:"蚂蚁「灵光」2.0 小范围内测，从聊天助手转向有长期记忆、可主动推进任务的个人智能体，本月计划全面开放。"
+    title:"上海 AI 基建公司无问芯穹完成 23 亿元 C 轮，创国内纪录",
+    url:"https://yangtzeer.com/news/deals/yangtze-ai-infra-llm-chip-robotics",
+    source:"Yangtzeer/长三角创投",
+    time:"2026-10-13T08:00:00+08:00",
+    desc:"上海 AI 基础设施公司无问芯穹完成 23 亿元 C 轮，累计融资 43 亿元创国内 AI 基建纪录，腾讯、百度等参投。"
   }
 ];
 
 /* ---------- 每周精选：GitHub 高赞开源 Skills ---------- */
 const GH_WEEKLY = [
-  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:158168, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-10-11T22:23:04Z"},
-  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:90617, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-10-11T22:54:13Z"},
-  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:75415, desc:"统一高效微调 100+ 大模型与多模态模型（ACL 2024）。", updated:"2026-10-10T07:29:23Z"},
-  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:41724, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-10-11T16:40:52Z"},
-  {name:"assafelovic/gpt-researcher", url:"https://github.com/assafelovic/gpt-researcher", stars:30023, desc:"自主智能体，基于任意 LLM 对任意数据开展深度研究。", updated:"2026-10-10T22:03:53Z"},
-  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29794, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-10-11T13:55:15Z"},
-  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25902, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-10-11T22:01:21Z"},
-  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:20116, desc:"开源智能体数据助手，面向下一代 AI+Data 产品研发。", updated:"2026-10-11T08:19:47Z"},
-  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18318, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-10-11T21:21:59Z"},
-  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14946, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-10-09T20:10:50Z"}
+  {name:"langgenius/dify", url:"https://github.com/langgenius/dify", stars:158277, desc:"可视化 Agent 工作流与 RAG 平台，从原型到生产一站式部署。", updated:"2026-10-12T23:53:58Z"},
+  {name:"OpenHands/OpenHands", url:"https://github.com/OpenHands/OpenHands", stars:90748, desc:"AI 驱动的软件开发代理，像人类开发者一样编写、运行与调试代码。", updated:"2026-10-12T23:00:38Z"},
+  {name:"hiyouga/LlamaFactory", url:"https://github.com/hiyouga/LlamaFactory", stars:75431, desc:"统一高效微调 100+ 大模型与多模态模型（ACL 2024）。", updated:"2026-10-10T07:29:23Z"},
+  {name:"AstrBotDevs/AstrBot", url:"https://github.com/AstrBotDevs/AstrBot", stars:41785, desc:"多平台 AI 机器人框架，接入微信、QQ、Discord 与多种大模型。", updated:"2026-10-12T15:13:20Z"},
+  {name:"assafelovic/gpt-researcher", url:"https://github.com/assafelovic/gpt-researcher", stars:30050, desc:"自主智能体，基于任意 LLM 对任意数据开展深度研究。", updated:"2026-10-10T22:03:53Z"},
+  {name:"labring/FastGPT", url:"https://github.com/labring/FastGPT", stars:29801, desc:"基于 LLM 的知识库平台，内置数据处理、RAG 检索与可视化工作流。", updated:"2026-10-12T11:32:59Z"},
+  {name:"promptfoo/promptfoo", url:"https://github.com/promptfoo/promptfoo", stars:25944, desc:"Prompt/Agent/RAG 测试与红队评估，支持 CI/CD，OpenAI、Anthropic 在用。", updated:"2026-10-12T22:27:06Z"},
+  {name:"eosphoros-ai/DB-GPT", url:"https://github.com/eosphoros-ai/DB-GPT", stars:20125, desc:"开源智能体数据助手，面向下一代 AI+Data 产品研发。", updated:"2026-10-11T08:19:47Z"},
+  {name:"arc53/DocsGPT", url:"https://github.com/arc53/DocsGPT", stars:18319, desc:"私有化 AI 平台，含 Agent Builder、深度研究与文档分析，多模型。", updated:"2026-10-12T13:35:24Z"},
+  {name:"botpress/botpress", url:"https://github.com/botpress/botpress", stars:14947, desc:"开源平台，用于构建与部署 GPT/LLM 驱动的智能体（Agent）。", updated:"2026-10-09T20:10:50Z"}
 ];
 
 /* ---------- 海外 AI 动态：备用数据（已预翻成中文） ---------- */
